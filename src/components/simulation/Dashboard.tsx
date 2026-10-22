@@ -24,6 +24,7 @@ import {
 } from "recharts";
 import { ReactorScene } from "./ReactorScene";
 import { GeopolymerBrickScene } from "./GeopolymerBrickScene";
+import { CirataTopobathyScene } from "./CirataTopobathyScene";
 import { ResearchTab } from "./ResearchTab";
 
 const formatRp = (value: number): string => {
@@ -35,7 +36,7 @@ const formatRp = (value: number): string => {
 
 export function Dashboard() {
   const [activeTab, setActiveTab] = useState<
-    "command" | "visual" | "brick" | "results" | "economy" | "research"
+    "command" | "topobathy" | "visual" | "brick" | "results" | "economy" | "research"
   >("command");
 
   const {
@@ -59,12 +60,12 @@ export function Dashboard() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Background sungai/waduk
-    ctx.fillStyle = "#0a192f";
+    // Background sungai/waduk (Light Sky/Water Theme - Tanpa Background Hitam)
+    ctx.fillStyle = "#f0f9ff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Garis arus air (Inflow dari kiri ke kanan)
-    ctx.strokeStyle = "rgba(56, 189, 248, 0.25)";
+    ctx.strokeStyle = "rgba(2, 132, 199, 0.28)";
     ctx.lineWidth = 1.5;
     for (let y = 35; y < 200; y += 32) {
       ctx.beginPath();
@@ -72,7 +73,7 @@ export function Dashboard() {
       ctx.lineTo(395, y);
       ctx.stroke();
       // Panah arus
-      ctx.fillStyle = "rgba(56, 189, 248, 0.45)";
+      ctx.fillStyle = "rgba(2, 132, 199, 0.55)";
       ctx.beginPath();
       ctx.moveTo(120, y);
       ctx.lineTo(112, y - 4);
@@ -81,12 +82,12 @@ export function Dashboard() {
     }
 
     // Collection Bay di tepi atas kanan
-    ctx.fillStyle = "rgba(34, 197, 94, 0.18)";
-    ctx.strokeStyle = "#22c55e";
+    ctx.fillStyle = "rgba(16, 185, 129, 0.16)";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2;
     ctx.fillRect(285, 8, 130, 36);
     ctx.strokeRect(285, 8, 130, 36);
-    ctx.fillStyle = "#22c55e";
+    ctx.fillStyle = "#065f46";
     ctx.font = "bold 11px sans-serif";
     ctx.fillText("COLLECTION BAY (TEPI)", 293, 30);
 
@@ -98,7 +99,7 @@ export function Dashboard() {
     const endX = startX + boomLen * Math.cos(rad);
     const endY = startY - boomLen * Math.sin(rad);
 
-    ctx.strokeStyle = mb.normalTensionKn > mb.actualBreakingStrengthKn ? "#ef4444" : "#5bc0be";
+    ctx.strokeStyle = mb.normalTensionKn > mb.actualBreakingStrengthKn ? "#e11d48" : "#0d9488";
     ctx.lineWidth = 6;
     ctx.beginPath();
     ctx.moveTo(startX, startY);
@@ -106,7 +107,7 @@ export function Dashboard() {
     ctx.stroke();
 
     // Titik Mooring & Damper
-    ctx.fillStyle = "#f59e0b";
+    ctx.fillStyle = "#d97706";
     ctx.beginPath();
     ctx.arc(startX, startY, 6, 0, Math.PI * 2);
     ctx.arc(endX, endY, 6, 0, Math.PI * 2);
@@ -118,7 +119,7 @@ export function Dashboard() {
 
     // Vektor Tangensial (Menggiring gulma ke Collection Bay)
     const ftLen = 65 * Math.cos(rad);
-    ctx.strokeStyle = "#22c55e";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(midX, midY);
@@ -127,7 +128,7 @@ export function Dashboard() {
 
     // Vektor Normal (Membebani Sling)
     const fnLen = 55 * Math.sin(rad);
-    ctx.strokeStyle = "#ef4444";
+    ctx.strokeStyle = "#e11d48";
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(midX, midY);
@@ -135,12 +136,12 @@ export function Dashboard() {
     ctx.stroke();
 
     // Keterangan Teks
-    ctx.fillStyle = "#f8fafc";
-    ctx.font = "11px sans-serif";
+    ctx.fillStyle = "#0f172a";
+    ctx.font = "bold 11px sans-serif";
     ctx.fillText(`Inflow Q = ${inflowQ.toFixed(2)} m³/s (v_drift = ${mb.vDriftMs} m/s)`, 18, 24);
-    ctx.fillStyle = "#22c55e";
+    ctx.fillStyle = "#047857";
     ctx.fillText(`F_tangensial (${mb.tangentialDeflectionPct.toFixed(1)}%) → Giring Gulma`, 18, 218);
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#be123c";
     ctx.fillText(`T_sling = ${mb.normalTensionKn.toFixed(1)} / ${mb.actualBreakingStrengthKn} kN`, 242, 218);
   }, [activeTab, thetaDeg, inflowQ, mb.normalTensionKn, mb.actualBreakingStrengthKn, mb.tangentialDeflectionPct, mb.vDriftMs]);
 
@@ -160,6 +161,7 @@ export function Dashboard() {
 
   const tabs = [
     { id: "command", label: "Command Center DSS" },
+    { id: "topobathy", label: "3D Topobathymetri Waduk Cirata" },
     { id: "visual", label: "Visualisasi 3D Waduk & Boom" },
     { id: "brick", label: "Visualisasi 3D Sling & Pelet" },
     { id: "results", label: "Analisis 4 Modul & Sensitivitas" },
@@ -337,7 +339,7 @@ export function Dashboard() {
                     θ = {thetaDeg}° | η = {mb.fiRatio}
                   </span>
                 </div>
-                <div className="flex items-center justify-center rounded-xl bg-[#0a192f] p-2 border border-slate-800 overflow-hidden">
+                <div className="flex items-center justify-center rounded-xl bg-sky-50/70 p-2 border border-sky-200 overflow-hidden">
                   <canvas
                     ref={boomCanvasRef}
                     width={430}
@@ -633,7 +635,16 @@ export function Dashboard() {
         )}
 
         {/* =========================================================
-            TAB 2: 3D RESERVOIR, DEFLECTION BOOM & COLLECTION BAY
+            TAB 2: 3D TOPOBATHYMETRIC DEM WADUK CIRATA (DEMNAS + GLOBATHY)
+           ========================================================= */}
+        {activeTab === "topobathy" && (
+          <div className="h-[640px] w-full">
+            <CirataTopobathyScene />
+          </div>
+        )}
+
+        {/* =========================================================
+            TAB 3: 3D RESERVOIR, DEFLECTION BOOM & COLLECTION BAY
            ========================================================= */}
         {activeTab === "visual" && (
           <div className="h-[600px] w-full">
