@@ -10,14 +10,21 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:h-24 sm:px-6 lg:h-28 lg:px-8">
-        {/* Left: Prominent Official Logos (ITB + Eureka! ITB 2026 + PLN Nusantara Power) + Brand Title with TM */}
+        {/* Left: Prominent Official Logos (ITB + UPI + Eureka! ITB 2026 + PLN Nusantara Power) + Brand Title */}
         <div className="flex min-w-0 items-center gap-2 sm:gap-4 lg:gap-6">
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-3 lg:gap-4">
-            <img
-              src="/assets/Logo_ITB.png"
-              alt="Logo ITB"
-              className="h-7 w-auto object-contain sm:h-12 lg:h-14"
-            />
+            <div className="-ml-1.5 sm:-ml-4 lg:-ml-6 xl:-ml-16 flex shrink-0 items-center gap-1.5 sm:gap-2.5">
+              <img
+                src="/assets/Logo_ITB.png"
+                alt="Logo ITB"
+                className="h-7 w-auto object-contain sm:h-12 lg:h-14"
+              />
+              <img
+                src="/assets/Logo_UPI.png"
+                alt="Logo UPI"
+                className="h-7 w-auto object-contain sm:h-12 lg:h-14"
+              />
+            </div>
             <div className="h-6 w-[1px] bg-gray-300 sm:h-10" />
             <img
               src="/assets/logo_eureka_itb_2026.svg"

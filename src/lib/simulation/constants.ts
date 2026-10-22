@@ -2,9 +2,10 @@
 // CIRATA-SENSE™ v2.6 DSS - Simulation Constants & Scientific Database
 // EUREKA! ITB 2026: Industrial Case Competition (Collaborating with PT PLN Nusantara Power)
 // Subtema: "Engineering Resilience: Optimalisasi Infrastruktur Pendukung untuk Efisiensi Sistem Industri Berkelanjutan"
-// TIM PHYSICS FOR SPIRIT - INSTITUT TEKNOLOGI BANDUNG (ITB)
+// TIM PHYSICS FOR SPIRIT - ITB & UPI
 // 1. Muhammad Ilham Saripul Milah (Ketua Tim | Teknik Metalurgi - FTTM ITB)
-// 2. Dzaky Zahy Rabbani (Anggota Tim | Oseanografi - FITB ITB)
+// 2. Shizuka Maula Everlin (Anggota Tim | Pendidikan Fisika - FPMIPA UPI)
+// 3. Dzaky Zahy Rabbani (Anggota Tim | Oseanografi - FITB ITB)
 // ============================================================
 
 export const POME_MODES = {
