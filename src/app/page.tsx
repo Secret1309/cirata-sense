@@ -447,7 +447,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-4">
             <img src="/assets/Logo_ITB.png" alt="ITB" className="h-8 w-auto object-contain" />
-            <img src="/assets/Logo_UPI.png" alt="UPI" className="h-8 w-auto object-contain" />
+            <img src="/assets/Logo_UPI.png" alt="UPI" className="h-7 w-auto object-contain" />
             <img src="/assets/logo_eureka_itb_2026.svg" alt="Eureka! ITB 2026" className="h-8 w-auto object-contain" />
             <img src="/assets/logo_pln_np.svg" alt="PLN Nusantara Power" className="h-8 w-auto object-contain" />
             <span className="font-bold text-gray-800">

@@ -12,8 +12,8 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:h-24 sm:px-6 lg:h-28 lg:px-8">
         {/* Left: Prominent Official Logos (ITB + UPI + Eureka! ITB 2026 + PLN Nusantara Power) + Brand Title */}
         <div className="flex min-w-0 items-center gap-2 sm:gap-4 lg:gap-6">
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3 lg:gap-4">
-            <div className="-ml-1.5 sm:-ml-4 lg:-ml-6 xl:-ml-16 flex shrink-0 items-center gap-1.5 sm:gap-2.5">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3.5 lg:gap-5">
+            <div className="-ml-2 sm:-ml-6 lg:-ml-10 xl:-ml-20 flex shrink-0 items-center gap-2 sm:gap-3.5 lg:gap-4">
               <img
                 src="/assets/Logo_ITB.png"
                 alt="Logo ITB"
@@ -22,7 +22,7 @@ export function Header() {
               <img
                 src="/assets/Logo_UPI.png"
                 alt="Logo UPI"
-                className="h-7 w-auto object-contain sm:h-12 lg:h-14"
+                className="h-[25px] w-auto object-contain sm:h-[43px] lg:h-[50px]"
               />
             </div>
             <div className="h-6 w-[1px] bg-gray-300 sm:h-10" />
