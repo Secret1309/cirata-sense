@@ -5,7 +5,6 @@
 // TIM PHYSICS FOR SPIRIT - INSTITUT TEKNOLOGI BANDUNG (ITB)
 // 1. Muhammad Ilham Saripul Milah (Ketua Tim | Teknik Metalurgi - FTTM ITB)
 // 2. Dzaky Zahy Rabbani (Anggota Tim | Oseanografi - FITB ITB)
-// Dosen Pembimbing: Ir. Tria Laksana Achmad, S.T., M.T., Ph.D. (Teknik Metalurgi - FTTM ITB)
 // ============================================================
 
 export const POME_MODES = {

@@ -223,7 +223,7 @@ function HelicalWireRopeSling({
       {showLabels && (
         <>
           <Html position={[0.62, 0.78, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-            <div className="pointer-events-none select-none rounded-lg bg-slate-950/92 border border-slate-600 px-2.5 py-1 font-mono text-[9px] font-bold text-slate-100 shadow-lg whitespace-nowrap">
+            <div className="pointer-events-none select-none rounded-lg bg-white/95 border border-gray-300 px-2.5 py-1 font-mono text-[9px] font-bold text-gray-900 shadow-md whitespace-nowrap">
               🔩 Inti 6×36 IWRC SS304 (Ø 20,0 mm) • T_nom = 577 kN
             </div>
           </Html>
@@ -231,17 +231,17 @@ function HelicalWireRopeSling({
           {!isCorroded ? (
             <>
               <Html position={[-0.68, 0.35, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-                <div className="pointer-events-none select-none rounded-lg bg-slate-950/92 border border-cyan-500/60 px-2.5 py-1 font-mono text-[9px] font-bold text-cyan-300 shadow-lg whitespace-nowrap">
+                <div className="pointer-events-none select-none rounded-lg bg-white/95 border border-sky-300 px-2.5 py-1 font-mono text-[9px] font-bold text-sky-800 shadow-md whitespace-nowrap">
                   🛡️ Selubung HDPE/PU (Isolasi Celah H₂S 0,005 mg/L)
                 </div>
               </Html>
               <Html position={[0.68, -0.1, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-                <div className="pointer-events-none select-none rounded-lg bg-slate-950/92 border border-emerald-500/60 px-2.5 py-1 font-mono text-[9px] font-bold text-emerald-300 shadow-lg whitespace-nowrap">
+                <div className="pointer-events-none select-none rounded-lg bg-white/95 border border-emerald-300 px-2.5 py-1 font-mono text-[9px] font-bold text-emerald-800 shadow-md whitespace-nowrap">
                   ⚡ Anoda Korban Zn-Al • T_aktual = 555 kN (SF = 1,77)
                 </div>
               </Html>
               <Html position={[0, LENGTH / 2 + 0.62, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-                <div className="pointer-events-none select-none rounded-lg bg-blue-950/92 border border-blue-400/60 px-2.5 py-1 font-mono text-[9px] font-bold text-blue-200 shadow-lg whitespace-nowrap">
+                <div className="pointer-events-none select-none rounded-lg bg-white/95 border border-blue-300 px-2.5 py-1 font-mono text-[9px] font-bold text-blue-800 shadow-md whitespace-nowrap">
                   🌊 Viscoelastic Damper (η = 0,88) • T_normal = 313,4 kN
                 </div>
               </Html>
@@ -249,12 +249,12 @@ function HelicalWireRopeSling({
           ) : (
             <>
               <Html position={[0, 0.05, 0.55]} center distanceFactor={6} zIndexRange={[100, 0]}>
-                <div className="pointer-events-none select-none rounded-lg bg-rose-950/95 border border-rose-500 px-2.5 py-1 font-mono text-[9px] font-bold text-rose-200 shadow-lg whitespace-nowrap">
+                <div className="pointer-events-none select-none rounded-lg bg-rose-50/95 border border-rose-400 px-2.5 py-1 font-mono text-[9px] font-bold text-rose-800 shadow-md whitespace-nowrap">
                   ⚠️ Crevice Corrosion &amp; Birdcaging (DO 2 mg/L + H₂S)
                 </div>
               </Html>
               <Html position={[0, -0.65, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-                <div className="pointer-events-none select-none rounded-lg bg-slate-950/92 border border-amber-500/60 px-2.5 py-1 font-mono text-[9px] font-bold text-amber-300 shadow-lg whitespace-nowrap">
+                <div className="pointer-events-none select-none rounded-lg bg-amber-50/95 border border-amber-400 px-2.5 py-1 font-mono text-[9px] font-bold text-amber-900 shadow-md whitespace-nowrap">
                   T_aktual Turun ke 485 kN vs Beban 620 kN (SF = 0,78 PUTUS)
                 </div>
               </Html>
@@ -352,12 +352,12 @@ function FermentedKjaPelletCluster({
       {showLabels && (
         <>
           <Html position={[0, 1.32, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-            <div className="pointer-events-none select-none rounded-lg bg-slate-950/92 border border-amber-500/60 px-2.5 py-1 font-mono text-[9px] font-bold text-amber-300 shadow-lg whitespace-nowrap">
+            <div className="pointer-events-none select-none rounded-lg bg-white/95 border border-amber-300 px-2.5 py-1 font-mono text-[9px] font-bold text-amber-800 shadow-md whitespace-nowrap">
               🐟 Pelet Pakan Fermentasi Eceng Gondok (Ø 4,0 mm • Protein 32,5%)
             </div>
           </Html>
           <Html position={[0, -1.35, 0]} center distanceFactor={6} zIndexRange={[100, 0]}>
-            <div className="pointer-events-none select-none rounded-lg bg-slate-950/92 border border-emerald-500/60 px-2.5 py-1 font-mono text-[9px] font-bold text-emerald-300 shadow-lg whitespace-nowrap">
+            <div className="pointer-events-none select-none rounded-lg bg-white/95 border border-emerald-300 px-2.5 py-1 font-mono text-[9px] font-bold text-emerald-800 shadow-md whitespace-nowrap">
               ♻️ Produksi 48 Ton/hari • Menyuplai 100.000 Petak KJA Waduk Cirata
             </div>
           </Html>
@@ -413,36 +413,36 @@ export function GeopolymerBrickScene() {
   const { massBalanceResult } = useSimulationStore();
 
   return (
-    <div className="relative h-full min-h-[540px] w-full overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/30">
+    <div className="relative h-full min-h-[540px] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-sky-50/60 to-emerald-50/50 shadow-sm">
       {/* Top-Left Interactive Controls */}
       <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setViewMode("HYDRA_SLING")}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-md transition border cursor-pointer ${
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               viewMode === "HYDRA_SLING"
-                ? "bg-emerald-600/90 text-white border-emerald-400/50"
-                : "bg-slate-900/90 text-slate-300 border-slate-700"
+                ? "bg-emerald-600 text-white border-emerald-500"
+                : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
             🛡️ Sling IWRC SS304 HYDRA (Terproteksi)
           </button>
           <button
             onClick={() => setViewMode("CORRODED_SLING")}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-md transition border cursor-pointer ${
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               viewMode === "CORRODED_SLING"
-                ? "bg-rose-600/90 text-white border-rose-400/50"
-                : "bg-slate-900/90 text-slate-300 border-slate-700"
+                ? "bg-rose-600 text-white border-rose-500"
+                : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
             ⚠️ Sling Eksisting (Korosi Celah / Putus)
           </button>
           <button
             onClick={() => setViewMode("KJA_PELLET")}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-md transition border cursor-pointer ${
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               viewMode === "KJA_PELLET"
-                ? "bg-amber-600/90 text-white border-amber-400/50"
-                : "bg-slate-900/90 text-slate-300 border-slate-700"
+                ? "bg-amber-600 text-white border-amber-500"
+                : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
             🐟 Pelet Fermentasi 100.000 KJA
@@ -452,20 +452,20 @@ export function GeopolymerBrickScene() {
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setAutoRotate((v) => !v)}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-md transition border cursor-pointer ${
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               autoRotate
-                ? "bg-cyan-600/80 text-white border-cyan-400/50"
-                : "bg-slate-900/90 text-slate-300 border-slate-700"
+                ? "bg-teal-600 text-white border-teal-500"
+                : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
             {autoRotate ? "🔄 Auto-Rotate: ON" : "🔄 Auto-Rotate: OFF"}
           </button>
           <button
             onClick={() => setShowCrossSection((v) => !v)}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-md transition border cursor-pointer ${
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               showCrossSection
-                ? "bg-amber-600/80 text-white border-amber-400/50"
-                : "bg-slate-900/90 text-slate-300 border-slate-700"
+                ? "bg-amber-600 text-white border-amber-500"
+                : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
             {showCrossSection
@@ -474,10 +474,10 @@ export function GeopolymerBrickScene() {
           </button>
           <button
             onClick={() => setShowLabels((v) => !v)}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-md transition border cursor-pointer ${
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               showLabels
-                ? "bg-slate-800/90 text-slate-200 border-slate-600"
-                : "bg-slate-900/90 text-slate-400 border-slate-700"
+                ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+                : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
             }`}
           >
             {showLabels ? "🏷️ Label Teknik: ON" : "🏷️ Label Teknik: OFF"}
@@ -487,9 +487,9 @@ export function GeopolymerBrickScene() {
 
       {/* Left Static Material Spec Card (Modul 3 Metalurgi & Modul 4 Sirkular) */}
       <div className="absolute top-32 left-4 z-10 hidden md:block pointer-events-none">
-        <div className="w-72 rounded-2xl border border-slate-700/80 bg-slate-950/90 p-3.5 shadow-2xl backdrop-blur-md pointer-events-auto">
-          <div className="mb-2 flex items-center justify-between border-b border-slate-800 pb-1.5">
-            <span className="text-xs font-bold text-white">
+        <div className="w-72 rounded-2xl border border-gray-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md pointer-events-auto">
+          <div className="mb-2 flex items-center justify-between border-b border-gray-100 pb-1.5">
+            <span className="text-xs font-bold text-gray-900">
               {viewMode === "KJA_PELLET"
                 ? "🐟 Pelet Sirkular 100.000 KJA"
                 : viewMode === "CORRODED_SLING"
@@ -499,8 +499,8 @@ export function GeopolymerBrickScene() {
             <span
               className={`rounded-full px-2 py-0.5 font-mono text-[9px] font-bold border ${
                 viewMode === "CORRODED_SLING"
-                  ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
-                  : "bg-emerald-500/20 border-emerald-500/40 text-emerald-300"
+                  ? "bg-rose-50 border-rose-300 text-rose-800"
+                  : "bg-emerald-50 border-emerald-300 text-emerald-800"
               }`}
             >
               {viewMode === "CORRODED_SLING"
@@ -510,22 +510,22 @@ export function GeopolymerBrickScene() {
           </div>
           <div className="space-y-1.5 text-[11px]">
             <div className="flex justify-between">
-              <span className="text-slate-400">Spesifikasi Kabel</span>
-              <span className="font-mono font-bold text-white">
+              <span className="text-gray-500">Spesifikasi Kabel</span>
+              <span className="font-mono font-bold text-gray-900">
                 IWRC SS304 Ø20 mm
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Kekuatan Tarik Nominal</span>
-              <span className="font-mono font-bold text-cyan-400">
+              <span className="text-gray-500">Kekuatan Tarik Nominal</span>
+              <span className="font-mono font-bold text-sky-700">
                 577,0 kN
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Kekuatan Aktual (T_aktual)</span>
+              <span className="text-gray-500">Kekuatan Aktual (T_aktual)</span>
               <span
                 className={`font-mono font-bold ${
-                  viewMode === "CORRODED_SLING" ? "text-rose-400" : "text-emerald-400"
+                  viewMode === "CORRODED_SLING" ? "text-rose-700" : "text-emerald-700"
                 }`}
               >
                 {viewMode === "CORRODED_SLING"
@@ -534,22 +534,22 @@ export function GeopolymerBrickScene() {
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Tegangan Operasional</span>
-              <span className="font-mono font-bold text-amber-400">
+              <span className="text-gray-500">Tegangan Operasional</span>
+              <span className="font-mono font-bold text-amber-700">
                 {viewMode === "CORRODED_SLING"
                   ? `${massBalanceResult.frontalLoadKn} kN (θ = 90°)`
                   : `${massBalanceResult.normalTensionKn} kN (θ = 35°)`}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Kondisi Air (PP 22/2021)</span>
-              <span className="font-mono font-bold text-slate-200">
+              <span className="text-gray-500">Kondisi Air (PP 22/2021)</span>
+              <span className="font-mono font-bold text-gray-800">
                 DO 2,0 mg/L • H₂S 0,005 mg/L
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Output Pelet KJA</span>
-              <span className="font-mono font-bold text-emerald-300">
+              <span className="text-gray-500">Output Pelet KJA</span>
+              <span className="font-mono font-bold text-emerald-700">
                 {massBalanceResult.fertilizerDailyTon.toFixed(1)} Ton/hari (100rb KJA)
               </span>
             </div>
@@ -559,8 +559,9 @@ export function GeopolymerBrickScene() {
 
       {/* 3D Canvas */}
       <Canvas shadows dpr={[1, 2]} gl={{ localClippingEnabled: true }}>
+        <color attach="background" args={["#f8fafc"]} />
         <PerspectiveCamera makeDefault position={[2.9, 1.3, 3.3]} fov={38} />
-        <ambientLight intensity={0.8} />
+        <ambientLight intensity={1.0} />
         <directionalLight position={[5, 8, 5]} intensity={1.6} castShadow />
         <pointLight position={[-3, 3, 2]} intensity={0.65} color="#10b981" />
         <pointLight position={[3, -2, -2]} intensity={0.55} color="#06b6d4" />
@@ -576,7 +577,7 @@ export function GeopolymerBrickScene() {
           />
           <ContactShadows
             position={[0, -1.75, 0]}
-            opacity={0.5}
+            opacity={0.35}
             scale={10}
             blur={2.5}
             far={4}
@@ -593,32 +594,32 @@ export function GeopolymerBrickScene() {
       </Canvas>
 
       {/* Bottom-Right Legend */}
-      <div className="absolute bottom-4 right-4 z-10 rounded-2xl border border-slate-700/80 bg-slate-950/90 p-3.5 text-xs text-slate-200 shadow-2xl backdrop-blur-md max-w-xs">
-        <div className="mb-2 font-bold text-white text-[11px] border-b border-slate-800 pb-1">
+      <div className="absolute bottom-4 right-4 z-10 rounded-2xl border border-gray-200 bg-white/95 p-3.5 text-xs text-gray-700 shadow-lg backdrop-blur-md max-w-xs">
+        <div className="mb-2 font-bold text-gray-900 text-[11px] border-b border-gray-100 pb-1">
           Anatomi Metalurgi Sling IWRC SS304 &amp; Sirkular KJA
         </div>
         <div className="space-y-1.5 text-[10px]">
           {LEGEND_ITEMS.map((s, i) => (
             <div key={i} className="flex items-center gap-2">
               <span
-                className="block h-2.5 w-2.5 shrink-0 rounded-full"
+                className="block h-2.5 w-2.5 shrink-0 rounded-full border border-gray-300"
                 style={{ backgroundColor: s.color }}
               />
-              <span className="text-slate-300">{s.name}</span>
+              <span className="text-gray-700 font-medium">{s.name}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Top-Right Badge */}
-      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-slate-700 bg-slate-950/90 px-4 py-2 shadow-lg backdrop-blur-md">
-        <div className="font-mono text-[10px] uppercase tracking-wider text-cyan-400">
+      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2 shadow-md backdrop-blur-md">
+        <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-teal-700">
           Modul 3 Metalurgi &amp; Modul 4 Sirkular KJA
         </div>
-        <div className="text-sm font-bold text-white">
+        <div className="text-sm font-bold text-gray-900">
           Sling IWRC SS304 Ø20 mm (577 kN) &amp; Pelet KJA
         </div>
-        <div className="text-[10px] text-slate-400">
+        <div className="text-[10px] text-gray-600 font-medium">
           Anoda Korban Zn-Al + Selubung HDPE/PU (SF ≥ 1,68)
         </div>
       </div>

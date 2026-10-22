@@ -102,33 +102,6 @@ export default function TeamPage() {
             </div>
           ))}
         </div>
-
-        {/* Scientific Advisor Card */}
-        <div className="max-w-5xl mx-auto bg-white rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-3xl">
-              <div className="inline-block px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold">
-                Dosen Pembimbing &amp; Supervisi Saintifik
-              </div>
-              <h2 className="text-2xl font-extrabold text-gray-900">
-                Ir. Tria Laksana Achmad, S.T., M.T., Ph.D.
-              </h2>
-              <p className="text-xs font-semibold text-emerald-700">
-                Kelompok Keahlian Teknik Metalurgi - Fakultas Teknik Pertambangan dan Perminyakan (FTTM) ITB
-              </p>
-              <p className="text-sm text-gray-600 leading-relaxed pt-1">
-                <em>Expert in Computational Process Modeling &amp; Materials Engineering.</em> Memberikan supervisi saintifik pada pemodelan kinetika degradasi korosi celah (<em>crevice corrosion</em>) sling baja tahan karat IWRC SS304, dekomposisi beban struktural hidrodinamika, serta validasi arsitektur komputasi <strong>CIRATA-SENSE™ v2.6 Decision Support System</strong>.
-              </p>
-            </div>
-
-            <div className="shrink-0 flex flex-col items-center p-5 rounded-xl bg-gray-50 border border-gray-200 text-center">
-              <span className="text-xs font-bold text-gray-900">Engineering Resilience</span>
-              <span className="text-xs font-mono font-semibold text-emerald-700 mt-1">
-                SF ≥ 1,68 • PP 22/2021
-              </span>
-            </div>
-          </div>
-        </div>
       </main>
     </div>
   );

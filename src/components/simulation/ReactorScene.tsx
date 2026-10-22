@@ -19,19 +19,19 @@ function Loader() {
   const { progress } = useProgress();
   return (
     <Html center zIndexRange={[100, 0]}>
-      <div className="flex w-64 flex-col items-center justify-center rounded-xl border border-cyan-500/30 bg-slate-900/90 p-6 shadow-xl backdrop-blur-md">
-        <div className="mb-2 text-sm font-bold text-cyan-400">
+      <div className="flex w-64 flex-col items-center justify-center rounded-xl border border-emerald-200 bg-white/95 p-6 shadow-xl backdrop-blur-md">
+        <div className="mb-2 text-sm font-bold text-emerald-700">
           Memuat Digital Twin 3D Waduk Cirata...
         </div>
-        <div className="h-2 w-full overflow-hidden rounded-full bg-slate-800">
+        <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
           <motion.div
-            className="h-full bg-cyan-500"
+            className="h-full bg-emerald-600"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ type: "spring", stiffness: 50 }}
           />
         </div>
-        <div className="mt-1 font-mono text-xs text-slate-300">
+        <div className="mt-1 font-mono text-xs text-gray-600">
           {progress.toFixed(0)}%
         </div>
       </div>
@@ -43,7 +43,7 @@ function DataLabel({
   position,
   title,
   badge,
-  badgeColor = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+  badgeColor = "bg-emerald-50 text-emerald-800 border-emerald-300",
   data,
 }: {
   position: [number, number, number];
@@ -56,9 +56,9 @@ function DataLabel({
   if (!showLabels) return null;
   return (
     <Html position={position} center distanceFactor={16} zIndexRange={[100, 0]}>
-      <div className="pointer-events-none select-none flex flex-col items-start rounded-xl border border-slate-700/80 bg-slate-950/90 p-2.5 shadow-2xl backdrop-blur-md min-w-[175px]">
-        <div className="mb-1 flex w-full items-center justify-between gap-2 border-b border-slate-800 pb-1">
-          <span className="text-[10px] font-extrabold text-white uppercase tracking-wider">
+      <div className="pointer-events-none select-none flex flex-col items-start rounded-xl border border-gray-200 bg-white/95 p-2.5 shadow-lg backdrop-blur-md min-w-[175px]">
+        <div className="mb-1 flex w-full items-center justify-between gap-2 border-b border-gray-100 pb-1">
+          <span className="text-[10px] font-extrabold text-gray-900 uppercase tracking-wider">
             {title}
           </span>
           {badge && (
@@ -73,7 +73,7 @@ function DataLabel({
           data.map((line, idx) => (
             <div
               key={idx}
-              className="font-mono text-[9px] text-slate-300 whitespace-nowrap mt-0.5"
+              className="font-mono text-[9px] text-gray-700 font-semibold whitespace-nowrap mt-0.5"
             >
               {line}
             </div>
@@ -86,7 +86,7 @@ function DataLabel({
 function SmallLabel({
   position,
   text,
-  colorClass = "bg-cyan-950/90 text-cyan-300 border-cyan-500/40",
+  colorClass = "bg-white/95 text-teal-800 border-teal-300",
 }: {
   position: [number, number, number];
   text: string;
@@ -97,7 +97,7 @@ function SmallLabel({
   return (
     <Html position={position} distanceFactor={13} center>
       <div
-        className={`rounded-md border px-2 py-0.5 font-mono text-[8px] font-bold whitespace-nowrap pointer-events-none shadow-md ${colorClass}`}
+        className={`rounded-md border px-2 py-0.5 font-mono text-[8px] font-bold whitespace-nowrap pointer-events-none shadow-sm ${colorClass}`}
       >
         {text}
       </div>
@@ -126,11 +126,11 @@ function ReservoirWaterAndBanks() {
       >
         <planeGeometry args={[28, 16]} />
         <meshPhysicalMaterial
-          color="#0c4a6e"
-          emissive="#082f49"
-          emissiveIntensity={0.35}
+          color="#0284c7"
+          emissive="#0369a1"
+          emissiveIntensity={0.2}
           roughness={0.18}
-          metalness={0.15}
+          metalness={0.1}
           clearcoat={0.8}
           clearcoatRoughness={0.2}
         />
@@ -138,24 +138,24 @@ function ReservoirWaterAndBanks() {
 
       {/* Grid Referensi Spasial Hidrodinamika */}
       <gridHelper
-        args={[28, 28, "#0284c7", "#0f172a"]}
+        args={[28, 28, "#38bdf8", "#7dd3fc"]}
         position={[0, 0.08, 0]}
       />
 
       {/* Tanggul Utara (Lokasi Collection Bay & Pabrik Pelet KJA) */}
       <mesh position={[0, 0.45, -7.2]} receiveShadow castShadow>
         <boxGeometry args={[28, 0.9, 1.8]} />
-        <meshStandardMaterial color="#1e293b" roughness={0.8} />
+        <meshStandardMaterial color="#64748b" roughness={0.7} />
       </mesh>
       <mesh position={[0, 0.92, -7.2]} receiveShadow>
         <boxGeometry args={[28, 0.08, 1.6]} />
-        <meshStandardMaterial color="#15803d" roughness={0.9} />
+        <meshStandardMaterial color="#16a34a" roughness={0.8} />
       </mesh>
 
       {/* Tanggul Selatan */}
       <mesh position={[0, 0.45, 7.2]} receiveShadow castShadow>
         <boxGeometry args={[28, 0.9, 1.8]} />
-        <meshStandardMaterial color="#1e293b" roughness={0.8} />
+        <meshStandardMaterial color="#64748b" roughness={0.7} />
       </mesh>
 
       {/* Garis Arus Inflow (Streamlines) */}
@@ -166,14 +166,14 @@ function ReservoirWaterAndBanks() {
           rotation={[0, 0, Math.PI / 2]}
         >
           <cylinderGeometry args={[0.025, 0.025, 16, 8]} />
-          <meshBasicMaterial color="#38bdf8" transparent opacity={0.35} />
+          <meshBasicMaterial color="#bae6fd" transparent opacity={0.55} />
         </mesh>
       ))}
 
       <SmallLabel
         position={[-9.5, 1.1, 0]}
         text={`INFLOW WADUK Q = ${inflowQ.toFixed(2)} m³/s →`}
-        colorClass="bg-sky-950/95 text-sky-300 border-sky-500/50"
+        colorClass="bg-white/95 text-sky-800 border-sky-300"
       />
     </group>
   );
@@ -242,7 +242,7 @@ function FloatingKjaCluster() {
         position={[-6.8, 2.8, 3.8]}
         title="1. KLASTER 100.000 PETAK KJA"
         badge={`DO ${massBalanceResult.projectedDoMgl} mg/L`}
-        badgeColor="bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
+        badgeColor="bg-sky-50 text-sky-800 border-sky-300"
         data={[
           `Suplai Pakan Sirkular: ${massBalanceResult.pelletDailyTon} Ton/hari`,
           `Total N: 1,0 mg/L | Total P: 0,24 mg/L`,
@@ -370,7 +370,7 @@ function HydrodynamicDeflectionBoom() {
               ? `VISCOELASTIC DAMPER (η = 0,88)`
               : `MOORING KAKU EKSISTING`
           }
-          colorClass="bg-amber-950/95 text-amber-300 border-amber-500/60"
+          colorClass="bg-amber-50 text-amber-800 border-amber-300"
         />
       </group>
 
@@ -393,8 +393,8 @@ function HydrodynamicDeflectionBoom() {
         }
         badgeColor={
           isOverloaded
-            ? "bg-rose-500/30 text-rose-300 border-rose-500/60"
-            : "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+            ? "bg-rose-50 text-rose-800 border-rose-300"
+            : "bg-emerald-50 text-emerald-800 border-emerald-300"
         }
         data={[
           `T_normal Sling: ${massBalanceResult.normalTensionKn} kN (Reduksi -${massBalanceResult.loadReductionPct}%)`,
@@ -561,14 +561,14 @@ function CollectionBayAndPelletPlant() {
       <SmallLabel
         position={[-1.0, 2.2, 1.2]}
         text={`COLLECTION BAY: PANEN ${massBalanceResult.biocharDoseGpl.toFixed(1)} HA/HARI`}
-        colorClass="bg-emerald-950/95 text-emerald-300 border-emerald-500/60"
+        colorClass="bg-emerald-50 text-emerald-800 border-emerald-300"
       />
 
       <DataLabel
         position={[0.8, 3.8, -0.2]}
         title="3. COLLECTION BAY & PABRIK PELET"
         badge={`${massBalanceResult.pelletDailyTon} Ton/hr`}
-        badgeColor="bg-amber-500/20 text-amber-300 border-amber-500/40"
+        badgeColor="bg-amber-50 text-amber-800 border-amber-300"
         data={[
           `Neraca Gulma: ${massBalanceResult.netCoverageRateHaDay} ha/hari (Terkendali)`,
           `Distribusi: ${massBalanceResult.fertilizerDailySacks50Kg} Karung @50kg/hari`,
@@ -588,7 +588,7 @@ function PltaCirataDamIntake() {
       {/* Dinding Bendungan Utama & Trash Rack Intake PLTA Cirata */}
       <mesh position={[0, 1.6, 0]} castShadow receiveShadow>
         <boxGeometry args={[2.2, 3.2, 9.5]} />
-        <meshStandardMaterial color="#334155" metalness={0.5} roughness={0.4} />
+        <meshStandardMaterial color="#64748b" metalness={0.35} roughness={0.45} />
       </mesh>
 
       {/* Kisi-kisi Intake Turbin (Bebas Sampah Eceng Gondok) */}
@@ -609,14 +609,14 @@ function PltaCirataDamIntake() {
       {/* Gardu Induk / Transformer Switchyard di Atas Dam */}
       <mesh position={[0.2, 3.55, -1.5]} castShadow>
         <boxGeometry args={[1.4, 0.8, 3.2]} />
-        <meshStandardMaterial color="#1e293b" metalness={0.8} />
+        <meshStandardMaterial color="#94a3b8" metalness={0.6} />
       </mesh>
 
       <DataLabel
         position={[0, 5.1, 0]}
         title="4. INTAKE TURBIN PLTA CIRATA"
         badge="ZERO DOWNTIME"
-        badgeColor="bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+        badgeColor="bg-emerald-50 text-emerald-800 border-emerald-300"
         data={[
           `Proteksi Loss: Rp17.074.290,072/jam/unit`,
           `Avoided Loss 24h: Rp${massBalanceResult.powerMW.toFixed(1)} Jt/hari/unit`,
@@ -659,58 +659,58 @@ export function ReactorScene() {
   } = useSimulationStore();
 
   return (
-    <div className="relative h-full min-h-[540px] w-full overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-950 via-sky-950/60 to-emerald-950/40">
+    <div className="relative h-full min-h-[540px] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-sky-50/70 to-emerald-50/60 shadow-sm">
       {/* Top-Left Interactive Controls */}
       <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
         <button
           onClick={() => setAutoRotate((v) => !v)}
-          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-lg backdrop-blur-md transition border cursor-pointer ${
+          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
             autoRotate
-              ? "bg-emerald-600/90 text-white border-emerald-400/50"
-              : "bg-slate-900/90 text-slate-300 border-slate-700"
+              ? "bg-emerald-600 text-white border-emerald-500"
+              : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
           }`}
         >
           {autoRotate ? "🔄 Putar Otomatis: ON" : "🔄 Putar Otomatis: OFF"}
         </button>
         <button
           onClick={() => setShowLabels((v) => !v)}
-          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-lg backdrop-blur-md transition border cursor-pointer ${
+          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
             showLabels
-              ? "bg-slate-800/90 text-emerald-300 border-emerald-500/40"
-              : "bg-slate-900/90 text-slate-400 border-slate-700"
+              ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+              : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
           }`}
         >
           {showLabels ? "🏷️ Telemetri 3D: ON" : "🏷️ Telemetri 3D: OFF"}
         </button>
         <button
           onClick={() => setParams({ codInlet: thetaDeg === 35 ? 90 : 35 })}
-          className="rounded-xl bg-teal-600/90 hover:bg-teal-500 px-3 py-1.5 text-xs font-bold text-white border border-teal-400/50 shadow-lg backdrop-blur-md transition cursor-pointer"
+          className="rounded-xl bg-teal-600 hover:bg-teal-700 px-3 py-1.5 text-xs font-bold text-white border border-teal-500 shadow-sm backdrop-blur-md transition cursor-pointer"
         >
           📐 Ubah Sudut Boom ({thetaDeg === 35 ? "θ = 35° → 90° Frontal" : "θ = 90° → 35° HYDRA"})
         </button>
         <button
           onClick={toggleLeadLag}
-          className="rounded-xl bg-cyan-600/90 hover:bg-cyan-500 px-3 py-1.5 text-xs font-bold text-white border border-cyan-400/50 shadow-lg backdrop-blur-md transition cursor-pointer"
+          className="rounded-xl bg-sky-600 hover:bg-sky-700 px-3 py-1.5 text-xs font-bold text-white border border-sky-500 shadow-sm backdrop-blur-md transition cursor-pointer"
         >
           🛡️ Proteksi Sling ({isColumnALead ? "HYDRA Zn-Al + Damper" : "Eksisting Tanpa Proteksi"})
         </button>
       </div>
 
       {/* Top-Right Digital Twin Status Badge */}
-      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-emerald-500/30 bg-slate-950/85 px-4 py-2.5 backdrop-blur-md shadow-xl">
-        <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-400">
+      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2.5 backdrop-blur-md shadow-md">
+        <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700">
           3D Digital Twin Waduk Cirata (6.200 ha)
         </div>
-        <div className="text-xs font-bold text-white">
+        <div className="text-xs font-bold text-gray-900">
           Deflection Boom 1,4 km (θ = {thetaDeg}°) • Collection Bay • 100.000 KJA
         </div>
-        <div className="mt-0.5 font-mono text-[10px] text-slate-400">
+        <div className="mt-0.5 font-mono text-[10px] text-gray-600">
           T_sling:{" "}
-          <strong className="text-cyan-400">
+          <strong className="text-teal-700">
             {massBalanceResult.normalTensionKn} kN (SF = {massBalanceResult.safetyFactor})
           </strong>{" "}
           | Pelet KJA:{" "}
-          <strong className="text-amber-400">
+          <strong className="text-amber-700">
             {massBalanceResult.pelletDailyTon} Ton/hari
           </strong>
         </div>
@@ -718,16 +718,17 @@ export function ReactorScene() {
 
       {/* 3D Canvas */}
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 11, 18], fov: 42 }}>
+        <color attach="background" args={["#f0f9ff"]} />
         <PerspectiveCamera makeDefault position={[0, 11.5, 19]} />
-        <ambientLight intensity={0.9} />
+        <ambientLight intensity={1.0} />
         <directionalLight
           position={[10, 18, 10]}
           intensity={1.6}
           castShadow
           shadow-mapSize={[1024, 1024]}
         />
-        <pointLight position={[-6, 6, 4]} intensity={0.8} color="#38bdf8" />
-        <pointLight position={[5, 6, -4]} intensity={0.8} color="#10b981" />
+        <pointLight position={[-6, 6, 4]} intensity={0.7} color="#0284c7" />
+        <pointLight position={[5, 6, -4]} intensity={0.7} color="#10b981" />
 
         <Environment preset="city" />
 
@@ -749,17 +750,17 @@ export function ReactorScene() {
       </Canvas>
 
       {/* Bottom-Right Legend */}
-      <div className="absolute bottom-4 right-4 z-10 rounded-xl border border-slate-700/80 bg-slate-950/90 p-3 text-xs text-slate-200 shadow-xl backdrop-blur-md">
-        <div className="mb-1.5 font-bold text-white text-[11px]">
+      <div className="absolute bottom-4 right-4 z-10 rounded-xl border border-gray-200 bg-white/95 p-3 text-xs text-gray-700 shadow-md backdrop-blur-md">
+        <div className="mb-1.5 font-bold text-gray-900 text-[11px]">
           Legenda Hidrodinamika &amp; Sirkularitas Waduk Cirata
         </div>
         <div className="space-y-1 text-[10px]">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
             <span>Deflection Trash Boom 1,4 km (PE-PU) &amp; Aliran Eceng Gondok</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
             <span>Anoda Korban Zn-Al &amp; Viscoelastic Damper (η = 0,88)</span>
           </div>
           <div className="flex items-center gap-2">
@@ -767,13 +768,13 @@ export function ReactorScene() {
             <span>Collection Bay Tepi, Ekskavator &amp; Pabrik Pelet 48 Ton/hari</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
+            <span className="h-2.5 w-2.5 rounded-full bg-teal-600" />
             <span>Klaster 100.000 Petak KJA &amp; Intake Turbin PLTA Cirata</span>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-4 left-4 rounded-lg border border-slate-800 bg-slate-950/80 px-2.5 py-1.5 font-mono text-[10px] text-slate-400 backdrop-blur-sm pointer-events-none">
+      <div className="absolute bottom-4 left-4 rounded-lg border border-gray-200 bg-white/95 px-2.5 py-1.5 font-mono text-[10px] font-semibold text-gray-600 shadow-sm backdrop-blur-sm pointer-events-none">
         Klik Kiri: Putar 3D • Klik Kanan: Geser • Scroll: Zoom
       </div>
     </div>

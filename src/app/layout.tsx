@@ -14,9 +14,17 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title:
-    "CIRATA-SENSE™ v2.6 DSS | HYDRA-CIRATA Integrated Decision Support System - EUREKA! ITB 2026",
+    "CIRATA-SENSE v2.6 DSS | HYDRA-CIRATA Integrated Decision Support System - EUREKA! ITB 2026",
   description:
     "Decision Support System (DSS) untuk PLTA Cirata Operational Resilience: Dekomposisi Vektor Gaya Hidrodinamika Trash Boom (θ = 35°), Proteksi Metalurgi Sling IWRC SS304, Optimasi Kuota Panen Oseanografi, & Sirkularitas Pakan 100.000 KJA - Tim Physics for Spirit | EUREKA! ITB 2026 (PT PLN Nusantara Power)",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/assets/logo_cirata_sense.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/assets/logo_cirata_sense.svg",
+  },
 };
 
 export default function RootLayout({

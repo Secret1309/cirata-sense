@@ -1,45 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none">
   <defs>
-    <linearGradient id="bgCard1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="50%" stop-color="#091526" />
-      <stop offset="100%" stop-color="#06202b" />
-    </linearGradient>
-    <linearGradient id="waterFlowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#0d9488" stop-opacity="0.45" />
+    <linearGradient id="waterFlowLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#ccfbf1" />
     </linearGradient>
     <marker id="arrowRed" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#f43f5e" />
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e11d48" />
     </marker>
     <marker id="arrowGreen" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#10b981" />
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#059669" />
     </marker>
     <marker id="arrowCyan" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#38bdf8" />
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7" />
     </marker>
     <marker id="arrowAmber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 9 5 L 0 9 z" fill="#f59e0b" />
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#d97706" />
     </marker>
   </defs>
 
-  <!-- Main Dark Engineering Blueprint Canvas -->
-  <rect width="1200" height="760" rx="20" fill="url(#bgCard1)" />
-  <rect x="12" y="12" width="1176" height="736" rx="14" stroke="#1e293b" stroke-width="2" />
+  <!-- Pure White Engineering Blueprint Canvas -->
+  <rect width="1200" height="760" rx="20" fill="#ffffff" />
+  <rect x="8" y="8" width="1184" height="744" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
 
-  <!-- Top Header Banner -->
-  <rect x="28" y="26" width="1144" height="68" rx="12" fill="#1e293b" fill-opacity="0.7" stroke="#334155" stroke-width="1.5" />
-  <text x="48" y="54" font-family="ui-monospace, monospace" font-size="13" font-weight="800" fill="#34d399" letter-spacing="1.2">
+  <!-- Top Header Banner (White & Light Emerald) -->
+  <rect x="28" y="24" width="1144" height="70" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="48" y="52" font-family="ui-monospace, monospace" font-size="13" font-weight="800" fill="#047857" letter-spacing="1">
     MODUL 02 (FISIKA HIDRODINAMIKA) &amp; MODUL 03 (REKAYASA KOROSI METALURGI)
   </text>
-  <text x="48" y="79" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#ffffff">
+  <text x="48" y="78" font-family="system-ui, sans-serif" font-size="20" font-weight="900" fill="#0f172a">
     Arsitektur Deflection Trash Boom 1,4 km (θ = 35°) &amp; Proteksi Sling IWRC SS304 Ø20 mm
   </text>
-  <rect x="935" y="39" width="218" height="40" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
-  <text x="1044" y="57" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#a7f3d0">
+  <rect x="935" y="38" width="218" height="42" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" />
+  <text x="1044" y="56" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#065f46">
     HIGH-FLOW 243,27 m³/s
   </text>
-  <text x="1044" y="72" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="900" fill="#34d399">
+  <text x="1044" y="72" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="900" fill="#047857">
     SF = 1,77 (≥ 1,68 AMAN)
   </text>
 
@@ -47,105 +42,104 @@
   <!-- LEFT PANEL: MODUL 2 - HYDRODYNAMIC FORCE VECTOR DECOMPOSITION (θ = 35°) -->
   <!-- ======================================================================= -->
   <g transform="translate(28, 112)">
-    <rect width="560" height="612" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
-    <rect x="18" y="18" width="524" height="390" rx="10" fill="url(#waterFlowGrad)" stroke="#0369a1" stroke-width="1.5" />
+    <rect width="560" height="616" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="18" y="18" width="524" height="390" rx="10" fill="url(#waterFlowLight)" stroke="#7dd3fc" stroke-width="1.5" />
 
     <!-- Panel Title -->
-    <text x="34" y="46" font-family="ui-monospace, monospace" font-size="12" font-weight="800" fill="#38bdf8">
+    <text x="34" y="44" font-family="ui-monospace, monospace" font-size="12" font-weight="800" fill="#0369a1">
       A. DEKOMPOSISI VEKTOR GAYA TRASH BOOM 1,4 KM (PE-PU)
     </text>
 
     <!-- Inflow Vectors from Top (Q = 243,27 m³/s) -->
-    <g stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowCyan)">
-      <line x1="150" y1="70" x2="150" y2="145" />
-      <line x1="260" y1="70" x2="260" y2="145" />
-      <line x1="370" y1="70" x2="370" y2="145" />
+    <g stroke="#0284c7" stroke-width="3" marker-end="url(#arrowCyan)">
+      <line x1="150" y1="72" x2="150" y2="145" />
+      <line x1="260" y1="72" x2="260" y2="145" />
+      <line x1="370" y1="72" x2="370" y2="145" />
     </g>
-    <text x="260" y="64" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#7dd3fc">
+    <text x="260" y="64" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#0c4a6e">
       ARUS INFLOW PUNCAK Q = 243,27 m³/s (F_D = ½·ρ·C_d·A_wet·v² + F_biomassa)
     </text>
 
     <!-- Dashed Red Existing Frontal Boom (θ = 90°) -->
-    <line x1="75" y1="195" x2="495" y2="195" stroke="#f43f5e" stroke-width="4" stroke-dasharray="10 7" />
-    <rect x="85" y="168" width="275" height="22" rx="4" fill="#881337" fill-opacity="0.9" stroke="#f43f5e" stroke-width="1" />
-    <text x="95" y="183" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#fecdd3">
+    <line x1="75" y1="195" x2="495" y2="195" stroke="#e11d48" stroke-width="4" stroke-dasharray="10 7" />
+    <rect x="82" y="166" width="282" height="24" rx="5" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5" />
+    <text x="92" y="182" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#be123c">
       Eksisting Frontal (θ = 90°): T = 620 kN &gt; 577 kN (JEBOL!)
     </text>
 
     <!-- Solid HYDRA-CIRATA Angled Deflection Boom (θ = 35°) -->
-    <line x1="95" y1="195" x2="465" y2="335" stroke="#f97316" stroke-width="10" stroke-linecap="round" />
-    <line x1="95" y1="195" x2="465" y2="335" stroke="#fde047" stroke-width="2.5" stroke-dasharray="14 10" />
+    <line x1="95" y1="195" x2="465" y2="335" stroke="#ea580c" stroke-width="10" stroke-linecap="round" />
+    <line x1="95" y1="195" x2="465" y2="335" stroke="#fef08a" stroke-width="2.5" stroke-dasharray="14 10" />
 
     <!-- Angle Arc θ = 35° -->
-    <path d="M 185 195 A 90 90 0 0 1 178 226" stroke="#34d399" stroke-width="3" fill="none" />
-    <text x="196" y="218" font-family="ui-monospace, monospace" font-size="14" font-weight="900" fill="#34d399">
+    <path d="M 185 195 A 90 90 0 0 1 178 226" stroke="#047857" stroke-width="3" fill="none" />
+    <text x="196" y="218" font-family="ui-monospace, monospace" font-size="14" font-weight="900" fill="#047857">
       θ = 35°
     </text>
 
     <!-- Force Vector Decomposition at Center Node (280, 265) -->
-    <!-- Normal Force Vector F_N / T_normal -->
-    <line x1="280" y1="265" x2="235" y2="355" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrowAmber)" />
-    <rect x="80" y="348" width="235" height="42" rx="6" fill="#0f172a" fill-opacity="0.92" stroke="#f59e0b" stroke-width="1.5" />
-    <text x="92" y="366" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#fbbf24">
+    <line x1="280" y1="265" x2="235" y2="352" stroke="#d97706" stroke-width="4" marker-end="url(#arrowAmber)" />
+    <rect x="76" y="346" width="242" height="44" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="88" y="364" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#b45309">
       T_normal = η·T_frontal·sin(35°)
     </text>
-    <text x="92" y="382" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#ffffff">
+    <text x="88" y="381" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#0f172a">
       = 313,4 kN (Reduksi Beban 49,5%)
     </text>
 
     <!-- Tangential Sweeping Vector F_T = F_D cos 35° (81,9%) -->
-    <line x1="280" y1="265" x2="445" y2="328" stroke="#10b981" stroke-width="5" marker-end="url(#arrowGreen)" />
-    <rect x="285" y="220" width="242" height="42" rx="6" fill="#064e3b" fill-opacity="0.95" stroke="#10b981" stroke-width="1.5" />
-    <text x="297" y="238" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#6ee7b7">
+    <line x1="280" y1="265" x2="442" y2="327" stroke="#059669" stroke-width="5" marker-end="url(#arrowGreen)" />
+    <rect x="282" y="218" width="246" height="44" rx="6" fill="#ffffff" stroke="#10b981" stroke-width="1.5" />
+    <text x="294" y="236" font-family="ui-monospace, monospace" font-size="11" font-weight="800" fill="#047857">
       Gaya Tangensial F_T = F_D·cos(35°)
     </text>
-    <text x="297" y="254" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#ffffff">
+    <text x="294" y="253" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#0f172a">
       81,9% Arus Menggiring ke Tepi →
     </text>
 
     <!-- Collection Bay Box at Right End of Boom -->
-    <rect x="440" y="318" width="90" height="75" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2.5" />
-    <text x="485" y="346" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" font-weight="900" fill="#ffffff">
+    <rect x="440" y="318" width="90" height="75" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="2.5" />
+    <text x="485" y="345" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" font-weight="900" fill="#065f46">
       COLLECTION
     </text>
-    <text x="485" y="361" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" font-weight="900" fill="#ffffff">
+    <text x="485" y="360" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" font-weight="900" fill="#065f46">
       BAY TEPI
     </text>
-    <text x="485" y="378" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9.5" font-weight="700" fill="#a7f3d0">
+    <text x="485" y="378" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="800" fill="#047857">
       16,0 ha/hari
     </text>
 
     <!-- Comparison Table for 3 Inflow Scenarios (Low, Moderate, High) -->
-    <rect x="18" y="422" width="524" height="172" rx="10" fill="#1e293b" fill-opacity="0.7" stroke="#334155" stroke-width="1.5" />
-    <text x="34" y="446" font-family="ui-monospace, monospace" font-size="11.5" font-weight="800" fill="#cbd5e1">
+    <rect x="18" y="422" width="524" height="176" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="34" y="446" font-family="ui-monospace, monospace" font-size="11.5" font-weight="800" fill="#0f172a">
       KOMPARASI BEBAN TARIK SLING PADA 3 SKENARIO DEBIT (AGS 2025 – JUL 2026)
     </text>
-    <line x1="30" y1="456" x2="530" y2="456" stroke="#475569" stroke-width="1" />
+    <line x1="30" y1="456" x2="530" y2="456" stroke="#cbd5e1" stroke-width="1.5" />
 
     <g font-family="ui-monospace, monospace" font-size="11">
-      <text x="34" y="476" fill="#94a3b8" font-weight="700">Skenario Inflow</text>
-      <text x="205" y="476" fill="#94a3b8" font-weight="700">Debit Q</text>
-      <text x="305" y="476" fill="#fda4af" font-weight="700">Frontal (90°)</text>
-      <text x="420" y="476" fill="#6ee7b7" font-weight="700">HYDRA (35°)</text>
+      <text x="34" y="476" fill="#475569" font-weight="800">Skenario Inflow</text>
+      <text x="205" y="476" fill="#475569" font-weight="800">Debit Q</text>
+      <text x="305" y="476" fill="#be123c" font-weight="800">Frontal (90°)</text>
+      <text x="420" y="476" fill="#047857" font-weight="800">HYDRA (35°)</text>
 
       <!-- Row 1: Low -->
-      <text x="34" y="504" fill="#e2e8f0" font-weight="700">1. Low-Flow (0–33%)</text>
-      <text x="205" y="504" fill="#38bdf8" font-weight="700">72,18 m³/s</text>
-      <text x="305" y="504" fill="#cbd5e1">254,1 kN</text>
-      <text x="420" y="504" fill="#34d399" font-weight="800">128,4 kN (SF 4,32)</text>
+      <text x="34" y="504" fill="#1e293b" font-weight="700">1. Low-Flow (0–33%)</text>
+      <text x="205" y="504" fill="#0369a1" font-weight="800">72,18 m³/s</text>
+      <text x="305" y="504" fill="#475569" font-weight="700">254,1 kN</text>
+      <text x="420" y="504" fill="#047857" font-weight="800">128,4 kN (SF 4,32)</text>
 
       <!-- Row 2: Moderate -->
-      <text x="34" y="534" fill="#e2e8f0" font-weight="700">2. Moderate (33–66%)</text>
-      <text x="205" y="534" fill="#38bdf8" font-weight="700">150,80 m³/s</text>
-      <text x="305" y="534" fill="#fcd34d">418,5 kN</text>
-      <text x="420" y="534" fill="#34d399" font-weight="800">211,5 kN (SF 2,62)</text>
+      <text x="34" y="534" fill="#1e293b" font-weight="700">2. Moderate (33–66%)</text>
+      <text x="205" y="534" fill="#0369a1" font-weight="800">150,80 m³/s</text>
+      <text x="305" y="534" fill="#b45309" font-weight="700">418,5 kN</text>
+      <text x="420" y="534" fill="#047857" font-weight="800">211,5 kN (SF 2,62)</text>
 
       <!-- Row 3: High -->
-      <rect x="28" y="548" width="504" height="32" rx="6" fill="#064e3b" fill-opacity="0.55" stroke="#10b981" stroke-width="1" />
-      <text x="34" y="569" fill="#ffffff" font-weight="800">3. High-Flow (66–100%)</text>
-      <text x="205" y="569" fill="#38bdf8" font-weight="800">243,27 m³/s</text>
-      <text x="305" y="569" fill="#f43f5e" font-weight="900">620,8 kN (PUTUS)</text>
-      <text x="420" y="569" fill="#34d399" font-weight="900">313,4 kN (SF 1,77)</text>
+      <rect x="28" y="548" width="504" height="34" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" />
+      <text x="34" y="570" fill="#0f172a" font-weight="900">3. High-Flow (66–100%)</text>
+      <text x="205" y="570" fill="#0369a1" font-weight="900">243,27 m³/s</text>
+      <text x="305" y="570" fill="#e11d48" font-weight="900">620,8 kN (PUTUS)</text>
+      <text x="420" y="570" fill="#047857" font-weight="900">313,4 kN (SF 1,77)</text>
     </g>
   </g>
 
@@ -153,36 +147,35 @@
   <!-- RIGHT PANEL: MODUL 3 - IWRC SS304 METALLURGICAL CORROSION PROTECTION   -->
   <!-- ======================================================================= -->
   <g transform="translate(612, 112)">
-    <rect width="560" height="612" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    <rect width="560" height="616" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
 
     <!-- Panel Title -->
-    <text x="30" y="42" font-family="ui-monospace, monospace" font-size="12" font-weight="800" fill="#fbbf24">
+    <text x="30" y="42" font-family="ui-monospace, monospace" font-size="12" font-weight="800" fill="#b45309">
       B. PENAMPANG METALURGI SLING IWRC SS304 (Ø20 mm • 577 kN)
     </text>
-    <text x="30" y="62" font-family="system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#94a3b8">
+    <text x="30" y="62" font-family="system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#475569">
       Mitigasi Crevice Corrosion &amp; Corrosion Fatigue pada DO 2,0 mg/L &amp; H₂S 0,005 mg/L
     </text>
 
-    <!-- Cross-Section Diagram Box -->
-    <rect x="22" y="78" width="516" height="330" rx="10" fill="#091322" stroke="#334155" stroke-width="1.5" />
+    <!-- Cross-Section Diagram Box (Light Clean Card) -->
+    <rect x="22" y="78" width="516" height="330" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
 
-    <!-- Concentric Cross-Section of Protected Wire Rope Sling at (205, 242) -->
+    <!-- Concentric Cross-Section of Protected Wire Rope Sling at (195, 242) -->
     <g transform="translate(195, 242)">
-      <!-- Outer Cathodic Protection Halo -->
-      <circle cx="0" cy="0" r="128" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="6 6" />
+      <circle cx="0" cy="0" r="128" fill="#ecfdf5" stroke="#10b981" stroke-width="2" stroke-dasharray="6 6" />
       <!-- Layer 3: Clamp-On Zn-Al Sacrificial Anode Collar Ring -->
-      <circle cx="0" cy="0" r="110" fill="#065f46" fill-opacity="0.35" stroke="#10b981" stroke-width="8" />
+      <circle cx="0" cy="0" r="110" fill="#d1fae5" stroke="#059669" stroke-width="8" />
       <!-- Layer 2: Extruded HDPE/PU Polymer Jacket -->
-      <circle cx="0" cy="0" r="88" fill="#083344" stroke="#06b6d4" stroke-width="10" />
+      <circle cx="0" cy="0" r="88" fill="#e0f2fe" stroke="#0284c7" stroke-width="10" />
       <!-- Layer 1: 6 Outer Helical Strands SS304 -->
-      <circle cx="0" cy="-52" r="24" fill="#cbd5e1" stroke="#475569" stroke-width="3" />
-      <circle cx="45" cy="-26" r="24" fill="#cbd5e1" stroke="#475569" stroke-width="3" />
-      <circle cx="45" cy="26" r="24" fill="#cbd5e1" stroke="#475569" stroke-width="3" />
-      <circle cx="0" cy="52" r="24" fill="#cbd5e1" stroke="#475569" stroke-width="3" />
-      <circle cx="-45" cy="26" r="24" fill="#cbd5e1" stroke="#475569" stroke-width="3" />
-      <circle cx="-45" cy="-26" r="24" fill="#cbd5e1" stroke="#475569" stroke-width="3" />
+      <circle cx="0" cy="-52" r="24" fill="#e2e8f0" stroke="#475569" stroke-width="3" />
+      <circle cx="45" cy="-26" r="24" fill="#e2e8f0" stroke="#475569" stroke-width="3" />
+      <circle cx="45" cy="26" r="24" fill="#e2e8f0" stroke="#475569" stroke-width="3" />
+      <circle cx="0" cy="52" r="24" fill="#e2e8f0" stroke="#475569" stroke-width="3" />
+      <circle cx="-45" cy="26" r="24" fill="#e2e8f0" stroke="#475569" stroke-width="3" />
+      <circle cx="-45" cy="-26" r="24" fill="#e2e8f0" stroke="#475569" stroke-width="3" />
       <!-- Central IWRC Core SS304 -->
-      <circle cx="0" cy="0" r="27" fill="#f8fafc" stroke="#0f172a" stroke-width="3.5" />
+      <circle cx="0" cy="0" r="27" fill="#ffffff" stroke="#334155" stroke-width="3.5" />
       <text x="0" y="4" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="900" fill="#0f172a">
         IWRC
       </text>
@@ -191,58 +184,58 @@
     <!-- Callout Lines & Labels on Right of Cross-Section -->
     <g font-family="ui-monospace, monospace">
       <!-- Callout 1: IWRC SS304 -->
-      <line x1="215" y1="190" x2="345" y2="128" stroke="#cbd5e1" stroke-width="2" />
-      <rect x="345" y="102" width="178" height="48" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5" />
-      <text x="355" y="121" font-size="10.5" font-weight="800" fill="#ffffff">1. Inti IWRC SS304 Ø20mm</text>
-      <text x="355" y="138" font-size="9.5" fill="#cbd5e1">Kapasitas Nominal: 577 kN</text>
+      <line x1="215" y1="190" x2="345" y2="128" stroke="#475569" stroke-width="2" />
+      <rect x="345" y="102" width="178" height="48" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.5" />
+      <text x="355" y="121" font-size="10.5" font-weight="800" fill="#0f172a">1. Inti IWRC SS304 Ø20mm</text>
+      <text x="355" y="138" font-size="9.5" fill="#475569" font-weight="700">Kapasitas Nominal: 577 kN</text>
 
       <!-- Callout 2: HDPE/PU Jacket -->
-      <line x1="278" y1="215" x2="345" y2="195" stroke="#06b6d4" stroke-width="2" />
-      <rect x="345" y="168" width="178" height="52" rx="6" fill="#083344" stroke="#06b6d4" stroke-width="1.5" />
-      <text x="355" y="187" font-size="10.5" font-weight="800" fill="#67e8f9">2. Selubung HDPE/PU</text>
-      <text x="355" y="202" font-size="9.5" fill="#cffafe">Isolasi Celah Kawat dari</text>
-      <text x="355" y="214" font-size="9.5" fill="#cffafe">Infiltrasi H₂S 0,005 mg/L</text>
+      <line x1="278" y1="215" x2="345" y2="195" stroke="#0284c7" stroke-width="2" />
+      <rect x="345" y="168" width="178" height="52" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5" />
+      <text x="355" y="187" font-size="10.5" font-weight="800" fill="#0369a1">2. Selubung HDPE/PU</text>
+      <text x="355" y="202" font-size="9.5" fill="#0c4a6e" font-weight="600">Isolasi Celah Kawat dari</text>
+      <text x="355" y="214" font-size="9.5" fill="#0c4a6e" font-weight="600">Infiltrasi H₂S 0,005 mg/L</text>
 
       <!-- Callout 3: Anoda Korban Zn-Al -->
-      <line x1="302" y1="265" x2="345" y2="265" stroke="#10b981" stroke-width="2" />
-      <rect x="345" y="236" width="178" height="52" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
-      <text x="355" y="255" font-size="10.5" font-weight="800" fill="#6ee7b7">3. Anoda Korban Zn-Al</text>
-      <text x="355" y="270" font-size="9.5" fill="#d1fae5">Proteksi Katodik Galvanik</text>
-      <text x="355" y="282" font-size="9.5" fill="#d1fae5">T_aktual Terjaga: 555 kN</text>
+      <line x1="302" y1="265" x2="345" y2="265" stroke="#059669" stroke-width="2" />
+      <rect x="345" y="236" width="178" height="52" rx="6" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" />
+      <text x="355" y="255" font-size="10.5" font-weight="800" fill="#047857">3. Anoda Korban Zn-Al</text>
+      <text x="355" y="270" font-size="9.5" fill="#065f46" font-weight="600">Proteksi Katodik Galvanik</text>
+      <text x="355" y="282" font-size="9.5" fill="#065f46" font-weight="700">T_aktual Terjaga: 555 kN</text>
 
       <!-- Callout 4: Viscoelastic Damper -->
-      <rect x="345" y="304" width="178" height="52" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5" />
-      <text x="355" y="323" font-size="10.5" font-weight="800" fill="#a5b4fc">4. Viscoelastic Damper</text>
-      <text x="355" y="338" font-size="9.5" fill="#e0e7ff">Faktor Redaman η = 0,88</text>
-      <text x="355" y="350" font-size="9.5" fill="#e0e7ff">Cegah Corrosion Fatigue</text>
+      <rect x="345" y="304" width="178" height="52" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" />
+      <text x="355" y="323" font-size="10.5" font-weight="800" fill="#b45309">4. Viscoelastic Damper</text>
+      <text x="355" y="338" font-size="9.5" fill="#78350f" font-weight="600">Faktor Redaman η = 0,88</text>
+      <text x="355" y="350" font-size="9.5" fill="#78350f" font-weight="600">Cegah Corrosion Fatigue</text>
     </g>
 
-    <!-- Bottom Equations & Safety Factor Comparison Bars -->
-    <rect x="22" y="422" width="516" height="172" rx="10" fill="#1e293b" fill-opacity="0.7" stroke="#334155" stroke-width="1.5" />
-    <text x="36" y="446" font-family="ui-monospace, monospace" font-size="11.5" font-weight="800" fill="#fde047">
+    <!-- Bottom Equations & Safety Factor Comparison Bars (White & Light Slate) -->
+    <rect x="22" y="422" width="516" height="176" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="36" y="446" font-family="ui-monospace, monospace" font-size="11.5" font-weight="800" fill="#0f172a">
       PERSAMAAN DEGRADASI METALURGI &amp; KOMPARASI SAFETY FACTOR (SF)
     </text>
-    <text x="36" y="468" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#e2e8f0">
+    <text x="36" y="468" font-family="ui-monospace, monospace" font-size="11" font-weight="700" fill="#334155">
       T_aktual(t) = T_nominal · [1 - k_degradasi(DO, H₂S) · t]   |   SF = T_aktual / T_operasional
     </text>
 
     <!-- Bar 1: Unprotected Existing -->
-    <text x="36" y="498" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#fda4af">
+    <text x="36" y="498" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#be123c">
       Eksisting Tanpa Proteksi (T_aktual 485 kN / T_frontal 620 kN):
     </text>
-    <rect x="36" y="506" width="480" height="22" rx="5" fill="#0f172a" />
+    <rect x="36" y="506" width="480" height="22" rx="5" fill="#e2e8f0" />
     <rect x="36" y="506" width="195" height="22" rx="5" fill="#e11d48" />
-    <text x="242" y="521" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#fda4af">
+    <text x="242" y="521" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#be123c">
       SF = 0,78 (&lt; 1,0 → SLING PUTUS SAAT BANJIR)
     </text>
 
     <!-- Bar 2: Protected HYDRA-CIRATA -->
-    <text x="36" y="550" font-family="ui-monospace, monospace" font-size="10.5" font-weight="700" fill="#6ee7b7">
+    <text x="36" y="550" font-family="ui-monospace, monospace" font-size="10.5" font-weight="800" fill="#047857">
       HYDRA-CIRATA Terproteksi Zn-Al + HDPE/PU (T_aktual 555 kN / T_normal 313 kN):
     </text>
-    <rect x="36" y="558" width="480" height="22" rx="5" fill="#0f172a" />
-    <rect x="36" y="558" width="435" height="22" rx="5" fill="#10b981" />
-    <text x="50" y="573" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#052e16">
+    <rect x="36" y="558" width="480" height="24" rx="5" fill="#e2e8f0" />
+    <rect x="36" y="558" width="435" height="24" rx="5" fill="#10b981" />
+    <text x="50" y="574" font-family="ui-monospace, monospace" font-size="11" font-weight="900" fill="#ffffff">
       SF = 1,77 (≥ 1,68 → AMAN TERKENDALI • ZERO BREACH)
     </text>
   </g>

@@ -16,11 +16,11 @@ export default function LandingPage() {
           Layer 3 (z-20): Invisible Compartment Aligned Top-Right on Laptop (2-Line Title & 5-Line Description) + Dedicated Centered Mobile Layout
       */}
       <section className="relative isolate w-full min-h-0 lg:min-h-[85vh] flex items-start justify-center lg:justify-end overflow-hidden bg-white border-b border-gray-200">
-        {/* LAYER 1 (BOTTOM): Crisp High-Res Waduk Cirata & PLTA Cirata Dam Illustration */}
+        {/* LAYER 1 (BOTTOM): Crisp High-Res Waduk Cirata Map Background */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center lg:bg-left xl:bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/assets/hero_cirata_dam.svg')",
+            backgroundImage: "url('/assets/hero_waduk_cirata_map.png')",
           }}
         />
         {/* Smooth Editorial Gradient Overlay (Mobile: Soft Top-to-Bottom White Veil; Desktop: Left-to-Right Fade) */}
@@ -356,17 +356,17 @@ export default function LandingPage() {
                   SF ≥ 1,68 Validated
                 </span>
               </div>
-              <div className="p-4 flex-1 flex items-center justify-center bg-slate-950">
+              <div className="p-4 flex-1 flex items-center justify-center bg-white">
                 <img
                   src="/assets/fig_hydra_architecture.svg"
                   alt="Arsitektur Infrastruktur HYDRA-CIRATA dan CIRATA-SENSE DSS"
-                  className="w-full h-auto rounded-lg object-contain border border-slate-800"
+                  className="w-full h-auto rounded-lg object-contain border border-gray-200 bg-white"
                 />
               </div>
             </div>
 
             <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm flex flex-col">
-              <div className="p-5 border-b border-gray-100 flex items-center justify-between">
+              <div className="p-5 border-b border-gray-100 flex items-center justify-between bg-white">
                 <div>
                   <span className="text-xs font-mono text-amber-700 font-bold">MEKANISME SIRKULARITAS WADUK CIRATA</span>
                   <h4 className="text-base font-bold text-gray-900">Penggiringan Pasif, Collection Bay &amp; Pelet Fermentasi 100.000 KJA</h4>
@@ -375,11 +375,11 @@ export default function LandingPage() {
                   PP 22/2021 Kelas IV
                 </span>
               </div>
-              <div className="p-4 flex-1 flex items-center justify-center bg-slate-950">
+              <div className="p-4 flex-1 flex items-center justify-center bg-white">
                 <img
                   src="/assets/fig_cirata_circularity.svg"
                   alt="Mekanisme Integrasi 4 Modul CIRATA-SENSE"
-                  className="w-full h-auto rounded-lg object-contain border border-slate-800"
+                  className="w-full h-auto rounded-lg object-contain border border-gray-200 bg-white"
                 />
               </div>
             </div>

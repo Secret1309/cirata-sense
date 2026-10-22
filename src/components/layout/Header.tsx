@@ -41,7 +41,7 @@ export function Header() {
                 backgroundImage: 'linear-gradient(to right, #0f172a, #0369a1, #0d9488)',
               }}
             >
-              CIRATA-SENSE<sup className="ml-0.5 text-[10px] sm:text-base lg:text-2xl font-extrabold align-super text-teal-700">™</sup>
+              CIRATA-SENSE
             </h1>
           </Link>
         </div>
