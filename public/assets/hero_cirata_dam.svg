@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <!-- Sky & Atmosphere Gradient -->
+    <linearGradient id="cirataSky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bae6fd" />
+      <stop offset="45%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+
+    <!-- Reservoir Water Gradient (Waduk Cirata 6.200 ha) -->
+    <linearGradient id="cirataWater" x1="0%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1" />
+      <stop offset="35%" stop-color="#0284c7" />
+      <stop offset="70%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#ecfeff" />
+    </linearGradient>
+
+    <!-- Mountain Range Gradients -->
+    <linearGradient id="mountainFar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#115e59" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="mountainMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <!-- Concrete Dam Gradient -->
+    <linearGradient id="damConcrete" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <!-- Boom Float Gradient -->
+    <linearGradient id="boomFloat" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="50%" stop-color="#fb923c" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Sky Background -->
+  <rect width="1600" height="900" fill="url(#cirataSky)" />
+
+  <!-- Subtle Sun Glow over West Java Hills -->
+  <circle cx="380" cy="170" r="150" fill="#fef08a" opacity="0.45" />
+  <circle cx="380" cy="170" r="85" fill="#fde047" opacity="0.55" />
+
+  <!-- 2. Far West Java Mountain Range (Purwakarta - Cianjur - Bandung Barat) -->
+  <path
+    d="M0 370 L110 280 L250 325 L410 215 L590 310 L760 230 L940 320 L1150 250 L1350 330 L1600 280 L1600 470 L0 470 Z"
+    fill="url(#mountainFar)"
+  />
+
+  <!-- 3. Mid Lush Green Hills Surrounding Waduk Cirata -->
+  <path
+    d="M0 410 L170 335 L340 390 L520 315 L710 385 L890 345 L1080 405 L1600 380 L1600 500 L0 500 Z"
+    fill="url(#mountainMid)"
+  />
+
+  <!-- 4. High-Voltage Transmission Towers (PLTA Cirata 1.008 MW Grid) -->
+  <g stroke="#334155" stroke-width="2.2" opacity="0.75">
+    <!-- Tower 1 -->
+    <line x1="150" y1="340" x2="135" y2="230" />
+    <line x1="120" y1="340" x2="135" y2="230" />
+    <line x1="115" y1="255" x2="155" y2="255" />
+    <line x1="118" y1="280" x2="152" y2="280" />
+    <line x1="124" y1="305" x2="146" y2="305" />
+    <!-- Tower 2 -->
+    <line x1="310" y1="375" x2="295" y2="265" />
+    <line x1="280" y1="375" x2="295" y2="265" />
+    <line x1="275" y1="290" x2="315" y2="290" />
+    <line x1="278" y1="315" x2="312" y2="315" />
+    <!-- Power Grid Cables -->
+    <path d="M155 255 Q225 295 275 290" fill="none" stroke="#475569" stroke-width="1.5" />
+    <path d="M152 280 Q225 320 278 315" fill="none" stroke="#475569" stroke-width="1.5" />
+  </g>
+
+  <!-- 5. Waduk Cirata Reservoir Water Surface (6.200 Ha) -->
+  <rect x="0" y="425" width="1600" height="475" fill="url(#cirataWater)" />
+
+  <!-- Hydrodynamic Inflow Streamlines (Q = 72,18 - 243,27 m³/s) -->
+  <g stroke="#7dd3fc" stroke-width="2.5" stroke-dasharray="18 12" opacity="0.55">
+    <path d="M920 465 C760 510, 620 555, 450 610" />
+    <path d="M1020 495 C830 545, 670 600, 490 660" />
+    <path d="M840 450 C690 485, 560 520, 390 560" />
+    <path d="M740 590 C590 615, 470 630, 330 640" stroke="#34d399" stroke-width="3.5" />
+    <path d="M680 650 C540 675, 420 690, 290 700" stroke="#34d399" stroke-width="3.5" />
+  </g>
+
+  <!-- 6. PLTA Cirata Concrete Dam Wall, Spillway & Intake Structure (Left Foreground) -->
+  <g>
+    <!-- Dam Crest & Sloped Concrete Face -->
+    <polygon points="0,395 295,435 235,610 0,585" fill="url(#damConcrete)" stroke="#334155" stroke-width="2" />
+    <!-- Dam Roadway Crest -->
+    <polygon points="0,382 305,424 295,438 0,396" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+    <!-- Turbine Intake Gates & Spillway Bays -->
+    <rect x="35" y="445" width="38" height="95" rx="4" fill="#1e293b" opacity="0.85" />
+    <rect x="95" y="452" width="38" height="95" rx="4" fill="#1e293b" opacity="0.85" />
+    <rect x="155" y="460" width="38" height="95" rx="4" fill="#1e293b" opacity="0.85" />
+    <!-- Intake Control Tower -->
+    <rect x="210" y="368" width="56" height="72" rx="4" fill="#f1f5f9" stroke="#334155" stroke-width="2" />
+    <rect x="218" y="378" width="40" height="18" rx="2" fill="#0284c7" />
+    <rect x="204" y="360" width="68" height="10" rx="3" fill="#0f172a" />
+  </g>
+
+  <!-- 7. Cluster of 100.000 KJA (Keramba Jaring Apung) Floating Cages in Mid-Reservoir -->
+  <g transform="translate(640, 448)" opacity="0.9">
+    <!-- Row 1 KJA Cages -->
+    <g transform="skewX(-25)">
+      <rect x="0" y="0" width="36" height="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <rect x="42" y="0" width="36" height="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <rect x="84" y="0" width="36" height="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <rect x="126" y="0" width="36" height="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <rect x="168" y="0" width="36" height="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <rect x="0" y="26" width="36" height="22" fill="#0f172a" stroke="#22d3ee" stroke-width="2" />
+      <rect x="42" y="26" width="36" height="22" fill="#0f172a" stroke="#22d3ee" stroke-width="2" />
+      <rect x="84" y="26" width="36" height="22" fill="#0f172a" stroke="#22d3ee" stroke-width="2" />
+      <rect x="126" y="26" width="36" height="22" fill="#0f172a" stroke="#22d3ee" stroke-width="2" />
+      <rect x="168" y="26" width="36" height="22" fill="#0f172a" stroke="#22d3ee" stroke-width="2" />
+    </g>
+    <!-- KJA Guard House -->
+    <rect x="175" y="-12" width="26" height="18" rx="2" fill="#f59e0b" stroke="#78350f" stroke-width="1.5" />
+    <polygon points="172,-12 188,-24 204,-12" fill="#b45309" />
+  </g>
+
+  <!-- 8. Collection Bay & Circular Pellet Processing Ramp (Left-Bottom Bank) -->
+  <g transform="translate(80, 650)">
+    <!-- Concrete Collection Bay Basin -->
+    <polygon points="0,35 230,10 265,125 0,155" fill="#334155" stroke="#10b981" stroke-width="3" />
+    <polygon points="15,48 215,24 242,110 15,135" fill="#065f46" />
+    <!-- Accumulated Water Hyacinth Inside Collection Bay (16,0 ha/day Harvest) -->
+    <ellipse cx="125" cy="78" rx="85" ry="32" fill="#16a34a" />
+    <ellipse cx="110" cy="74" rx="60" ry="22" fill="#22c55e" />
+    <ellipse cx="145" cy="84" rx="48" ry="18" fill="#4ade80" />
+    <!-- Excavator Arm on Bank -->
+    <rect x="25" y="0" width="48" height="28" rx="5" fill="#eab308" stroke="#713f12" stroke-width="2" />
+    <path d="M70 12 L115 -18 L145 28" stroke="#eab308" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <!-- 9. HYDRA-CIRATA Angled Deflection Trash Boom 1,4 km (θ = 35°) + IWRC SS304 Sling + Anode Nodes -->
+  <g>
+    <!-- Subsurface IWRC SS304 Ø20mm Wire Rope Sling Cable (577 kN) -->
+    <line x1="295" y1="670" x2="940" y2="515" stroke="#e2e8f0" stroke-width="7" />
+    <line x1="295" y1="670" x2="940" y2="515" stroke="#06b6d4" stroke-width="3.5" stroke-dasharray="14 8" />
+
+    <!-- Floating PE-PU Modular Pontoons Along θ = 35° Axis -->
+    <g stroke="#7c2d12" stroke-width="1.5">
+      <rect x="315" y="650" width="58" height="18" rx="9" transform="rotate(-13.5 315 650)" fill="url(#boomFloat)" />
+      <rect x="390" y="632" width="58" height="18" rx="9" transform="rotate(-13.5 390 632)" fill="url(#boomFloat)" />
+      <rect x="465" y="614" width="58" height="18" rx="9" transform="rotate(-13.5 465 614)" fill="url(#boomFloat)" />
+      <rect x="540" y="596" width="58" height="18" rx="9" transform="rotate(-13.5 540 596)" fill="url(#boomFloat)" />
+      <rect x="615" y="578" width="58" height="18" rx="9" transform="rotate(-13.5 615 578)" fill="url(#boomFloat)" />
+      <rect x="690" y="560" width="58" height="18" rx="9" transform="rotate(-13.5 690 560)" fill="url(#boomFloat)" />
+      <rect x="765" y="542" width="58" height="18" rx="9" transform="rotate(-13.5 765 542)" fill="url(#boomFloat)" />
+      <rect x="840" y="524" width="58" height="18" rx="9" transform="rotate(-13.5 840 524)" fill="url(#boomFloat)" />
+    </g>
+
+    <!-- Clamp-On Zn-Al Sacrificial Anode & Viscoelastic Mooring Damper Buoys (η = 0,88) -->
+    <g>
+      <circle cx="382" cy="648" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="532" cy="612" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="682" cy="576" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="832" cy="540" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2.5" />
+    </g>
+
+    <!-- Drifting Water Hyacinth Mats (Eceng Gondok 430 Ha) Being Passively Deflected (81,9% F_T) -->
+    <g opacity="0.92">
+      <ellipse cx="780" cy="585" rx="52" ry="18" fill="#15803d" />
+      <ellipse cx="775" cy="582" rx="38" ry="12" fill="#22c55e" />
+      <ellipse cx="640" cy="618" rx="64" ry="20" fill="#15803d" />
+      <ellipse cx="635" cy="615" rx="46" ry="14" fill="#4ade80" />
+      <ellipse cx="495" cy="652" rx="70" ry="22" fill="#166534" />
+      <ellipse cx="490" cy="648" rx="50" ry="15" fill="#22c55e" />
+      <ellipse cx="365" cy="682" rx="58" ry="20" fill="#15803d" />
+      <ellipse cx="360" cy="679" rx="42" ry="13" fill="#4ade80" />
+    </g>
+  </g>
+
+  <!-- 10. Floating Engineering HUD Callouts on Left Visual Area -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <!-- Callout 1: PLTA Cirata Dam -->
+    <rect x="28" y="305" width="290" height="44" rx="8" fill="#0f172a" fill-opacity="0.88" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="42" y="324" font-size="11" font-weight="800" fill="#38bdf8">PLTA CIRATA INTAKE (PLN NUSANTARA POWER)</text>
+    <text x="42" y="340" font-size="10" font-weight="600" fill="#e2e8f0">Proteksi Downtime: Rp17.074.290,072/jam/unit</text>
+
+    <!-- Callout 2: Deflection Boom θ = 35° -->
+    <rect x="450" y="512" width="335" height="48" rx="8" fill="#0f172a" fill-opacity="0.9" stroke="#10b981" stroke-width="1.5" />
+    <text x="464" y="531" font-size="11" font-weight="800" fill="#34d399">HYDRA-CIRATA DEFLECTION BOOM 1,4 KM (θ = 35°)</text>
+    <text x="464" y="548" font-size="10" font-weight="600" fill="#f8fafc">Sling IWRC SS304 Ø20mm: 313 kN (SF 1,77) • F_T 81,9%</text>
+
+    <!-- Callout 3: Collection Bay & KJA -->
+    <rect x="50" y="805" width="365" height="48" rx="8" fill="#0f172a" fill-opacity="0.9" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="64" y="824" font-size="11" font-weight="800" fill="#fbbf24">COLLECTION BAY &amp; HILIRISasi PELET 100.000 KJA</text>
+    <text x="64" y="841" font-size="10" font-weight="600" fill="#f8fafc">Ekstraksi 16,0 ha/hr (-3,1 ha/hr net) → 48 Ton Pelet/hr</text>
+  </g>
+</svg>

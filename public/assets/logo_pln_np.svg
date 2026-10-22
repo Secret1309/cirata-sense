@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" fill="none">
+  <!-- Official PLN Yellow Emblem Box -->
+  <rect x="6" y="11" width="68" height="68" rx="8" fill="#facc15" stroke="#eab308" stroke-width="1.5" />
+
+  <!-- Three Cyan Waves -->
+  <path d="M16 36 Q24 30, 32 36 T48 36 T64 36" stroke="#0284c7" stroke-width="4" stroke-linecap="round" fill="none" />
+  <path d="M16 48 Q24 42, 32 48 T48 48 T64 48" stroke="#0284c7" stroke-width="4" stroke-linecap="round" fill="none" />
+  <path d="M16 60 Q24 54, 32 60 T48 60 T64 60" stroke="#0284c7" stroke-width="4" stroke-linecap="round" fill="none" />
+
+  <!-- Red Lightning Bolt -->
+  <polygon points="43,16 25,46 39,46 31,74 56,41 41,41" fill="#ef4444" />
+
+  <!-- PLN Nusantara Power Text -->
+  <text x="88" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="31" font-weight="900" fill="#0f172a" letter-spacing="2">
+    PLN
+  </text>
+  <text x="88" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#0369a1" letter-spacing="0.2">
+    Nusantara Power
+  </text>
+</svg>

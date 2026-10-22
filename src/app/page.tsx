@@ -16,11 +16,11 @@ export default function LandingPage() {
           Layer 3 (z-20): Invisible Compartment Aligned Top-Right on Laptop (2-Line Title & 5-Line Description) + Dedicated Centered Mobile Layout
       */}
       <section className="relative isolate w-full min-h-0 lg:min-h-[85vh] flex items-start justify-center lg:justify-end overflow-hidden bg-white border-b border-gray-200">
-        {/* LAYER 1 (BOTTOM): Crisp High-Res Plant Background Image */}
+        {/* LAYER 1 (BOTTOM): Crisp High-Res Waduk Cirata & PLTA Cirata Dam Illustration */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center lg:bg-left xl:bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/assets/hero_biotrap_plant.jpg')",
+            backgroundImage: "url('/assets/hero_cirata_dam.svg')",
           }}
         />
         {/* Smooth Editorial Gradient Overlay (Mobile: Soft Top-to-Bottom White Veil; Desktop: Left-to-Right Fade) */}
@@ -356,11 +356,11 @@ export default function LandingPage() {
                   SF ≥ 1,68 Validated
                 </span>
               </div>
-              <div className="p-4 flex-1 flex items-center justify-center bg-gray-50">
+              <div className="p-4 flex-1 flex items-center justify-center bg-slate-950">
                 <img
-                  src="/assets/slide_produk_hardware.png"
+                  src="/assets/fig_hydra_architecture.svg"
                   alt="Arsitektur Infrastruktur HYDRA-CIRATA dan CIRATA-SENSE DSS"
-                  className="w-full h-auto rounded-lg object-contain border border-gray-200"
+                  className="w-full h-auto rounded-lg object-contain border border-slate-800"
                 />
               </div>
             </div>
@@ -375,11 +375,11 @@ export default function LandingPage() {
                   PP 22/2021 Kelas IV
                 </span>
               </div>
-              <div className="p-4 flex-1 flex items-center justify-center bg-gray-50">
+              <div className="p-4 flex-1 flex items-center justify-center bg-slate-950">
                 <img
-                  src="/assets/fig_tiga_tahap.png"
+                  src="/assets/fig_cirata_circularity.svg"
                   alt="Mekanisme Integrasi 4 Modul CIRATA-SENSE"
-                  className="w-full h-auto rounded-lg object-contain border border-gray-200"
+                  className="w-full h-auto rounded-lg object-contain border border-slate-800"
                 />
               </div>
             </div>
@@ -445,8 +445,10 @@ export default function LandingPage() {
       {/* Clean White Footer */}
       <footer className="py-8 px-6 text-gray-600 text-xs border-t border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-wrap items-center gap-4">
             <img src="/assets/Logo_ITB.png" alt="ITB" className="h-8 w-auto object-contain" />
+            <img src="/assets/logo_eureka_itb_2026.svg" alt="Eureka! ITB 2026" className="h-8 w-auto object-contain" />
+            <img src="/assets/logo_pln_np.svg" alt="PLN Nusantara Power" className="h-8 w-auto object-contain" />
             <span className="font-bold text-gray-800">
               TIM PHYSICS FOR SPIRIT - Institut Teknologi Bandung
             </span>

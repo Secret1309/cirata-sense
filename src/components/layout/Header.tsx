@@ -10,35 +10,38 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:h-24 sm:px-6 lg:h-28 lg:px-8">
-        {/* Left: Prominent Logos (Responsive on Mobile, 2-3x Larger on Desktop) + Brand Title with TM */}
-        <div className="flex min-w-0 items-center gap-2 sm:gap-5 lg:gap-8">
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-4 lg:gap-5">
+        {/* Left: Prominent Official Logos (ITB + Eureka! ITB 2026 + PLN Nusantara Power) + Brand Title with TM */}
+        <div className="flex min-w-0 items-center gap-2 sm:gap-4 lg:gap-6">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3 lg:gap-4">
             <img
               src="/assets/Logo_ITB.png"
               alt="Logo ITB"
-              className="h-7 w-auto object-contain sm:h-13 lg:h-16"
+              className="h-7 w-auto object-contain sm:h-12 lg:h-14"
             />
-            <div className="h-6 w-[1px] bg-gray-300 sm:h-11" />
-            <div className="flex flex-col justify-center">
-              <span className="text-[10px] sm:text-xs font-black tracking-wider text-emerald-800 uppercase">
-                EUREKA! ITB 2026
-              </span>
-              <span className="text-[9px] sm:text-[11px] font-semibold text-teal-700">
-                PLN Nusantara Power • ICC
-              </span>
-            </div>
+            <div className="h-6 w-[1px] bg-gray-300 sm:h-10" />
+            <img
+              src="/assets/logo_eureka_itb_2026.svg"
+              alt="Eureka! ITB 2026"
+              className="h-7 w-auto object-contain sm:h-11 lg:h-13"
+            />
+            <div className="hidden md:block h-6 w-[1px] bg-gray-300 sm:h-10" />
+            <img
+              src="/assets/logo_pln_np.svg"
+              alt="PLN Nusantara Power"
+              className="hidden md:block h-7 w-auto object-contain sm:h-10 lg:h-12"
+            />
           </div>
 
           <div className="h-7 w-[1.5px] bg-gray-200 sm:h-10 sm:w-[2px]" />
 
           <Link href="/" className="group min-w-0 shrink-0">
             <h1
-              className="whitespace-nowrap bg-clip-text text-lg font-black tracking-tight text-transparent transition-opacity group-hover:opacity-90 sm:text-3xl lg:text-5xl"
+              className="whitespace-nowrap bg-clip-text text-lg font-black tracking-tight text-transparent transition-opacity group-hover:opacity-90 sm:text-2xl lg:text-4xl xl:text-5xl"
               style={{
-                backgroundImage: 'linear-gradient(to right, #0f172a, #15803d, #0d9488)',
+                backgroundImage: 'linear-gradient(to right, #0f172a, #0369a1, #0d9488)',
               }}
             >
-              CIRATA-SENSE<sup className="ml-0.5 text-[10px] sm:text-lg lg:text-2xl font-extrabold align-super text-teal-700">™</sup>
+              CIRATA-SENSE<sup className="ml-0.5 text-[10px] sm:text-base lg:text-2xl font-extrabold align-super text-teal-700">™</sup>
             </h1>
           </Link>
         </div>
