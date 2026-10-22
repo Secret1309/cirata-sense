@@ -408,14 +408,16 @@ export function GeopolymerBrickScene() {
   const [autoRotate, setAutoRotate] = useState(true);
   const [showCrossSection, setShowCrossSection] = useState(true);
   const [showLabels, setShowLabels] = useState(true);
+  const [showHudPanels, setShowHudPanels] = useState(true);
   const [viewMode, setViewMode] = useState<SceneViewMode>("HYDRA_SLING");
 
   const { massBalanceResult } = useSimulationStore();
+  const allPopupsOn = showLabels && showHudPanels;
 
   return (
     <div className="relative h-full min-h-[540px] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-sky-50/60 to-emerald-50/50 shadow-sm">
       {/* Top-Left Interactive Controls */}
-      <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+      <div className="absolute top-4 left-4 z-10 flex flex-col gap-2 max-w-2xl">
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setViewMode("HYDRA_SLING")}
@@ -451,6 +453,40 @@ export function GeopolymerBrickScene() {
 
         <div className="flex flex-wrap gap-1.5">
           <button
+            onClick={() => {
+              const next = !allPopupsOn;
+              setShowLabels(next);
+              setShowHudPanels(next);
+            }}
+            className={`rounded-xl px-3 py-1.5 text-xs font-bold shadow-sm backdrop-blur-md transition border cursor-pointer ${
+              allPopupsOn
+                ? "bg-emerald-700 text-white border-emerald-600"
+                : "bg-white/95 text-gray-800 border-gray-300 hover:bg-gray-50"
+            }`}
+          >
+            {allPopupsOn ? "👁️ Semua Pop-up: ON" : "👁️ Semua Pop-up: OFF"}
+          </button>
+          <button
+            onClick={() => setShowLabels((v) => !v)}
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
+              showLabels
+                ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+                : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
+            }`}
+          >
+            {showLabels ? "🏷️ Pop-up Label 3D: ON" : "🏷️ Pop-up Label 3D: OFF"}
+          </button>
+          <button
+            onClick={() => setShowHudPanels((v) => !v)}
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
+              showHudPanels
+                ? "bg-sky-50 text-sky-800 border-sky-300"
+                : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
+            }`}
+          >
+            {showHudPanels ? "📋 Panel Spesifikasi & Legenda: ON" : "📋 Panel Spesifikasi & Legenda: OFF"}
+          </button>
+          <button
             onClick={() => setAutoRotate((v) => !v)}
             className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
               autoRotate
@@ -472,90 +508,91 @@ export function GeopolymerBrickScene() {
               ? "🔬 Cutaway Selubung HDPE/PU: ON"
               : "🔬 Cutaway Selubung HDPE/PU: OFF"}
           </button>
-          <button
-            onClick={() => setShowLabels((v) => !v)}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
-              showLabels
-                ? "bg-emerald-50 text-emerald-800 border-emerald-300"
-                : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
-            }`}
-          >
-            {showLabels ? "🏷️ Label Teknik: ON" : "🏷️ Label Teknik: OFF"}
-          </button>
         </div>
       </div>
 
-      {/* Left Static Material Spec Card (Modul 3 Metalurgi & Modul 4 Sirkular) */}
-      <div className="absolute top-32 left-4 z-10 hidden md:block pointer-events-none">
-        <div className="w-72 rounded-2xl border border-gray-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md pointer-events-auto">
-          <div className="mb-2 flex items-center justify-between border-b border-gray-100 pb-1.5">
-            <span className="text-xs font-bold text-gray-900">
-              {viewMode === "KJA_PELLET"
-                ? "🐟 Pelet Sirkular 100.000 KJA"
-                : viewMode === "CORRODED_SLING"
-                ? "⚠️ Sling Eksisting (Tanpa Proteksi)"
-                : "🛡️ Sling IWRC SS304 HYDRA-CIRATA"}
-            </span>
-            <span
-              className={`rounded-full px-2 py-0.5 font-mono text-[9px] font-bold border ${
-                viewMode === "CORRODED_SLING"
-                  ? "bg-rose-50 border-rose-300 text-rose-800"
-                  : "bg-emerald-50 border-emerald-300 text-emerald-800"
-              }`}
-            >
-              {viewMode === "CORRODED_SLING"
-                ? "SF = 0,78 (PUTUS)"
-                : `SF = ${massBalanceResult.safetyFactor.toFixed(2)} (AMAN)`}
-            </span>
-          </div>
-          <div className="space-y-1.5 text-[11px]">
-            <div className="flex justify-between">
-              <span className="text-gray-500">Spesifikasi Kabel</span>
-              <span className="font-mono font-bold text-gray-900">
-                IWRC SS304 Ø20 mm
+      {/* Left Static Material Spec Card (Modul 3 Metalurgi & Modul 4 Sirkular - Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute top-32 left-4 z-10 hidden md:block pointer-events-none">
+          <div className="w-72 rounded-2xl border border-gray-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md pointer-events-auto">
+            <div className="mb-2 flex items-center justify-between border-b border-gray-100 pb-1.5">
+              <span className="text-xs font-bold text-gray-900">
+                {viewMode === "KJA_PELLET"
+                  ? "🐟 Pelet Sirkular 100.000 KJA"
+                  : viewMode === "CORRODED_SLING"
+                  ? "⚠️ Sling Eksisting (Tanpa Proteksi)"
+                  : "🛡️ Sling IWRC SS304 HYDRA-CIRATA"}
               </span>
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={`rounded-full px-2 py-0.5 font-mono text-[9px] font-bold border ${
+                    viewMode === "CORRODED_SLING"
+                      ? "bg-rose-50 border-rose-300 text-rose-800"
+                      : "bg-emerald-50 border-emerald-300 text-emerald-800"
+                  }`}
+                >
+                  {viewMode === "CORRODED_SLING"
+                    ? "SF = 0,78 (PUTUS)"
+                    : `SF = ${massBalanceResult.safetyFactor.toFixed(2)} (AMAN)`}
+                </span>
+                <button
+                  onClick={() => setShowHudPanels(false)}
+                  title="Sembunyikan Panel"
+                  className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Kekuatan Tarik Nominal</span>
-              <span className="font-mono font-bold text-sky-700">
-                577,0 kN
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Kekuatan Aktual (T_aktual)</span>
-              <span
-                className={`font-mono font-bold ${
-                  viewMode === "CORRODED_SLING" ? "text-rose-700" : "text-emerald-700"
-                }`}
-              >
-                {viewMode === "CORRODED_SLING"
-                  ? "485,0 kN (Korosi Celah)"
-                  : `${massBalanceResult.actualBreakingStrengthKn} kN (Anoda Zn-Al)`}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Tegangan Operasional</span>
-              <span className="font-mono font-bold text-amber-700">
-                {viewMode === "CORRODED_SLING"
-                  ? `${massBalanceResult.frontalLoadKn} kN (θ = 90°)`
-                  : `${massBalanceResult.normalTensionKn} kN (θ = 35°)`}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Kondisi Air (PP 22/2021)</span>
-              <span className="font-mono font-bold text-gray-800">
-                DO 2,0 mg/L • H₂S 0,005 mg/L
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Output Pelet KJA</span>
-              <span className="font-mono font-bold text-emerald-700">
-                {massBalanceResult.fertilizerDailyTon.toFixed(1)} Ton/hari (100rb KJA)
-              </span>
+            <div className="space-y-1.5 text-[11px]">
+              <div className="flex justify-between">
+                <span className="text-gray-500">Spesifikasi Kabel</span>
+                <span className="font-mono font-bold text-gray-900">
+                  IWRC SS304 Ø20 mm
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Kekuatan Tarik Nominal</span>
+                <span className="font-mono font-bold text-sky-700">
+                  577,0 kN
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Kekuatan Aktual (T_aktual)</span>
+                <span
+                  className={`font-mono font-bold ${
+                    viewMode === "CORRODED_SLING" ? "text-rose-700" : "text-emerald-700"
+                  }`}
+                >
+                  {viewMode === "CORRODED_SLING"
+                    ? "485,0 kN (Korosi Celah)"
+                    : `${massBalanceResult.actualBreakingStrengthKn} kN (Anoda Zn-Al)`}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Tegangan Operasional</span>
+                <span className="font-mono font-bold text-amber-700">
+                  {viewMode === "CORRODED_SLING"
+                    ? `${massBalanceResult.frontalLoadKn} kN (θ = 90°)`
+                    : `${massBalanceResult.normalTensionKn} kN (θ = 35°)`}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Kondisi Air (PP 22/2021)</span>
+                <span className="font-mono font-bold text-gray-800">
+                  DO 2,0 mg/L • H₂S 0,005 mg/L
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Output Pelet KJA</span>
+                <span className="font-mono font-bold text-emerald-700">
+                  {massBalanceResult.fertilizerDailyTon.toFixed(1)} Ton/hari (100rb KJA)
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* 3D Canvas */}
       <Canvas shadows dpr={[1, 2]} gl={{ localClippingEnabled: true }}>
@@ -593,36 +630,58 @@ export function GeopolymerBrickScene() {
         />
       </Canvas>
 
-      {/* Bottom-Right Legend */}
-      <div className="absolute bottom-4 right-4 z-10 rounded-2xl border border-gray-200 bg-white/95 p-3.5 text-xs text-gray-700 shadow-lg backdrop-blur-md max-w-xs">
-        <div className="mb-2 font-bold text-gray-900 text-[11px] border-b border-gray-100 pb-1">
-          Anatomi Metalurgi Sling IWRC SS304 &amp; Sirkular KJA
+      {/* Bottom-Right Legend (Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute bottom-4 right-4 z-10 rounded-2xl border border-gray-200 bg-white/95 p-3.5 text-xs text-gray-700 shadow-lg backdrop-blur-md max-w-xs">
+          <div className="mb-2 flex items-center justify-between border-b border-gray-100 pb-1">
+            <span className="font-bold text-gray-900 text-[11px]">
+              Anatomi Metalurgi Sling IWRC SS304 &amp; Sirkular KJA
+            </span>
+            <button
+              onClick={() => setShowHudPanels(false)}
+              title="Sembunyikan Legenda"
+              className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="space-y-1.5 text-[10px]">
+            {LEGEND_ITEMS.map((s, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span
+                  className="block h-2.5 w-2.5 shrink-0 rounded-full border border-gray-300"
+                  style={{ backgroundColor: s.color }}
+                />
+                <span className="text-gray-700 font-medium">{s.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="space-y-1.5 text-[10px]">
-          {LEGEND_ITEMS.map((s, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <span
-                className="block h-2.5 w-2.5 shrink-0 rounded-full border border-gray-300"
-                style={{ backgroundColor: s.color }}
-              />
-              <span className="text-gray-700 font-medium">{s.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
 
-      {/* Top-Right Badge */}
-      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2 shadow-md backdrop-blur-md">
-        <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-teal-700">
-          Modul 3 Metalurgi &amp; Modul 4 Sirkular KJA
+      {/* Top-Right Badge (Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2 shadow-md backdrop-blur-md">
+          <div className="flex items-center justify-between gap-3">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-teal-700">
+              Modul 3 Metalurgi &amp; Modul 4 Sirkular KJA
+            </div>
+            <button
+              onClick={() => setShowHudPanels(false)}
+              title="Sembunyikan Panel"
+              className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="text-sm font-bold text-gray-900">
+            Sling IWRC SS304 Ø20 mm (577 kN) &amp; Pelet KJA
+          </div>
+          <div className="text-[10px] text-gray-600 font-medium">
+            Anoda Korban Zn-Al + Selubung HDPE/PU (SF ≥ 1,68)
+          </div>
         </div>
-        <div className="text-sm font-bold text-gray-900">
-          Sling IWRC SS304 Ø20 mm (577 kN) &amp; Pelet KJA
-        </div>
-        <div className="text-[10px] text-gray-600 font-medium">
-          Anoda Korban Zn-Al + Selubung HDPE/PU (SF ≥ 1,68)
-        </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -18,14 +18,14 @@ export default function LandingPage() {
       <section className="relative isolate w-full min-h-0 lg:min-h-[85vh] flex items-start justify-center lg:justify-end overflow-hidden bg-white border-b border-gray-200">
         {/* LAYER 1 (BOTTOM): Crisp High-Res Waduk Cirata Map Background */}
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center lg:bg-left xl:bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 bg-cover bg-[position:18%_center] lg:bg-left bg-no-repeat"
           style={{
             backgroundImage: "url('/assets/hero_waduk_cirata_map.png')",
           }}
         />
-        {/* Smooth Editorial Gradient Overlay (Mobile: Soft Top-to-Bottom White Veil; Desktop: Left-to-Right Fade) */}
-        <div className="absolute inset-0 z-0 bg-white/82 sm:bg-white/78 lg:bg-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-white/88 lg:to-white" />
-        <div className="absolute inset-0 z-0 bg-gradient-to-t from-white via-white/40 to-transparent lg:via-transparent opacity-95" />
+        {/* Smooth Editorial Gradient Overlay (Keeps Waduk Cirata on Left Clear & Visible, Fades Smoothly on Right for Text) */}
+        <div className="absolute inset-0 z-0 bg-white/50 sm:bg-white/42 lg:bg-transparent lg:bg-[linear-gradient(to_right,rgba(255,255,255,0)_0%,rgba(255,255,255,0.02)_46%,rgba(255,255,255,0.78)_68%,rgba(255,255,255,0.95)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-16 z-0 bg-gradient-to-t from-white to-transparent" />
 
         {/* LAYER 2 (MIDDLE): Full-Canvas Snaking Ribbons */}
         <div
@@ -166,7 +166,7 @@ export default function LandingPage() {
               }}
             >
               <span className="block lg:whitespace-nowrap">
-                CIRATA-SENSE™ &amp;{' '}
+                CIRATA-SENSE &amp;{' '}
                 <span
                   className="text-emerald-600"
                   style={{
@@ -341,7 +341,7 @@ export default function LandingPage() {
               Arsitektur Rekayasa Fisika, Metalurgi, Oseanografi &amp; Digital Twin
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-              Ekosistem Ketahanan Terpadu HYDRA-CIRATA &amp; CIRATA-SENSE™ DSS
+              Ekosistem Ketahanan Terpadu HYDRA-CIRATA &amp; CIRATA-SENSE DSS
             </h3>
           </div>
 
@@ -454,7 +454,7 @@ export default function LandingPage() {
             </span>
           </div>
           <p className="text-gray-500">
-            &copy; 2026 CIRATA-SENSE™ v2.6 Decision Support System • EUREKA! ITB 2026 Industrial Case Competition (PT PLN Nusantara Power).
+            &copy; 2026 CIRATA-SENSE v2.6 Decision Support System • EUREKA! ITB 2026 Industrial Case Competition (PT PLN Nusantara Power).
           </p>
         </div>
       </footer>

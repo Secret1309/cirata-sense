@@ -650,6 +650,7 @@ function ReservoirDigitalTwinScene({ autoRotate }: { autoRotate: boolean }) {
 export function ReactorScene() {
   const [autoRotate, setAutoRotate] = useState(false);
   const [showLabels, setShowLabels] = useState(true);
+  const [showHudPanels, setShowHudPanels] = useState(true);
   const {
     isColumnALead,
     toggleLeadLag,
@@ -658,19 +659,25 @@ export function ReactorScene() {
     massBalanceResult,
   } = useSimulationStore();
 
+  const allPopupsOn = showLabels && showHudPanels;
+
   return (
     <div className="relative h-full min-h-[540px] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-sky-50/70 to-emerald-50/60 shadow-sm">
       {/* Top-Left Interactive Controls */}
-      <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
+      <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2 max-w-2xl">
         <button
-          onClick={() => setAutoRotate((v) => !v)}
-          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
-            autoRotate
-              ? "bg-emerald-600 text-white border-emerald-500"
-              : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
+          onClick={() => {
+            const next = !allPopupsOn;
+            setShowLabels(next);
+            setShowHudPanels(next);
+          }}
+          className={`rounded-xl px-3 py-1.5 text-xs font-bold shadow-sm backdrop-blur-md transition border cursor-pointer ${
+            allPopupsOn
+              ? "bg-emerald-700 text-white border-emerald-600"
+              : "bg-white/95 text-gray-800 border-gray-300 hover:bg-gray-50"
           }`}
         >
-          {autoRotate ? "🔄 Putar Otomatis: ON" : "🔄 Putar Otomatis: OFF"}
+          {allPopupsOn ? "👁️ Semua Pop-up: ON" : "👁️ Semua Pop-up: OFF"}
         </button>
         <button
           onClick={() => setShowLabels((v) => !v)}
@@ -680,7 +687,27 @@ export function ReactorScene() {
               : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
           }`}
         >
-          {showLabels ? "🏷️ Telemetri 3D: ON" : "🏷️ Telemetri 3D: OFF"}
+          {showLabels ? "🏷️ Pop-up Label 3D: ON" : "🏷️ Pop-up Label 3D: OFF"}
+        </button>
+        <button
+          onClick={() => setShowHudPanels((v) => !v)}
+          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
+            showHudPanels
+              ? "bg-sky-50 text-sky-800 border-sky-300"
+              : "bg-white/95 text-gray-600 border-gray-300 hover:bg-gray-50"
+          }`}
+        >
+          {showHudPanels ? "📋 Panel Info & Legenda: ON" : "📋 Panel Info & Legenda: OFF"}
+        </button>
+        <button
+          onClick={() => setAutoRotate((v) => !v)}
+          className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm backdrop-blur-md transition border cursor-pointer ${
+            autoRotate
+              ? "bg-emerald-600 text-white border-emerald-500"
+              : "bg-white/95 text-gray-700 border-gray-300 hover:bg-gray-50"
+          }`}
+        >
+          {autoRotate ? "🔄 Putar Otomatis: ON" : "🔄 Putar Otomatis: OFF"}
         </button>
         <button
           onClick={() => setParams({ codInlet: thetaDeg === 35 ? 90 : 35 })}
@@ -696,25 +723,36 @@ export function ReactorScene() {
         </button>
       </div>
 
-      {/* Top-Right Digital Twin Status Badge */}
-      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2.5 backdrop-blur-md shadow-md">
-        <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700">
-          3D Digital Twin Waduk Cirata (6.200 ha)
+      {/* Top-Right Digital Twin Status Badge (Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2.5 backdrop-blur-md shadow-md">
+          <div className="flex items-center justify-between gap-3">
+            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700">
+              3D Digital Twin Waduk Cirata (6.200 ha)
+            </div>
+            <button
+              onClick={() => setShowHudPanels(false)}
+              title="Sembunyikan Panel"
+              className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="text-xs font-bold text-gray-900">
+            Deflection Boom 1,4 km (θ = {thetaDeg}°) • Collection Bay • 100.000 KJA
+          </div>
+          <div className="mt-0.5 font-mono text-[10px] text-gray-600">
+            T_sling:{" "}
+            <strong className="text-teal-700">
+              {massBalanceResult.normalTensionKn} kN (SF = {massBalanceResult.safetyFactor})
+            </strong>{" "}
+            | Pelet KJA:{" "}
+            <strong className="text-amber-700">
+              {massBalanceResult.pelletDailyTon} Ton/hari
+            </strong>
+          </div>
         </div>
-        <div className="text-xs font-bold text-gray-900">
-          Deflection Boom 1,4 km (θ = {thetaDeg}°) • Collection Bay • 100.000 KJA
-        </div>
-        <div className="mt-0.5 font-mono text-[10px] text-gray-600">
-          T_sling:{" "}
-          <strong className="text-teal-700">
-            {massBalanceResult.normalTensionKn} kN (SF = {massBalanceResult.safetyFactor})
-          </strong>{" "}
-          | Pelet KJA:{" "}
-          <strong className="text-amber-700">
-            {massBalanceResult.pelletDailyTon} Ton/hari
-          </strong>
-        </div>
-      </div>
+      )}
 
       {/* 3D Canvas */}
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 11, 18], fov: 42 }}>
@@ -749,34 +787,47 @@ export function ReactorScene() {
         />
       </Canvas>
 
-      {/* Bottom-Right Legend */}
-      <div className="absolute bottom-4 right-4 z-10 rounded-xl border border-gray-200 bg-white/95 p-3 text-xs text-gray-700 shadow-md backdrop-blur-md">
-        <div className="mb-1.5 font-bold text-gray-900 text-[11px]">
-          Legenda Hidrodinamika &amp; Sirkularitas Waduk Cirata
+      {/* Bottom-Right Legend (Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute bottom-4 right-4 z-10 rounded-xl border border-gray-200 bg-white/95 p-3 text-xs text-gray-700 shadow-md backdrop-blur-md">
+          <div className="mb-1.5 flex items-center justify-between gap-3">
+            <span className="font-bold text-gray-900 text-[11px]">
+              Legenda Hidrodinamika &amp; Sirkularitas Waduk Cirata
+            </span>
+            <button
+              onClick={() => setShowHudPanels(false)}
+              title="Sembunyikan Legenda"
+              className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="space-y-1 text-[10px]">
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
+              <span>Deflection Trash Boom 1,4 km (PE-PU) &amp; Aliran Eceng Gondok</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
+              <span>Anoda Korban Zn-Al &amp; Viscoelastic Damper (η = 0,88)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-500" />
+              <span>Collection Bay Tepi, Ekskavator &amp; Pabrik Pelet 48 Ton/hari</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-teal-600" />
+              <span>Klaster 100.000 Petak KJA &amp; Intake Turbin PLTA Cirata</span>
+            </div>
+          </div>
         </div>
-        <div className="space-y-1 text-[10px]">
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
-            <span>Deflection Trash Boom 1,4 km (PE-PU) &amp; Aliran Eceng Gondok</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
-            <span>Anoda Korban Zn-Al &amp; Viscoelastic Damper (η = 0,88)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-500" />
-            <span>Collection Bay Tepi, Ekskavator &amp; Pabrik Pelet 48 Ton/hari</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-teal-600" />
-            <span>Klaster 100.000 Petak KJA &amp; Intake Turbin PLTA Cirata</span>
-          </div>
-        </div>
-      </div>
+      )}
 
-      <div className="absolute bottom-4 left-4 rounded-lg border border-gray-200 bg-white/95 px-2.5 py-1.5 font-mono text-[10px] font-semibold text-gray-600 shadow-sm backdrop-blur-sm pointer-events-none">
-        Klik Kiri: Putar 3D • Klik Kanan: Geser • Scroll: Zoom
-      </div>
+      {showHudPanels && (
+        <div className="absolute bottom-4 left-4 rounded-lg border border-gray-200 bg-white/95 px-2.5 py-1.5 font-mono text-[10px] font-semibold text-gray-600 shadow-sm backdrop-blur-sm pointer-events-none">
+          Klik Kiri: Putar 3D • Klik Kanan: Geser • Scroll: Zoom
+        </div>
+      )}
     </div>
   );
 }

@@ -322,7 +322,10 @@ export function CirataTopobathyScene() {
   const [colorMode, setColorMode] = useState<ColorSchemeMode>("NATURAL");
   const [showWaterSurface, setShowWaterSurface] = useState<boolean>(true);
   const [showLabels, setShowLabels] = useState<boolean>(true);
+  const [showHudPanels, setShowHudPanels] = useState<boolean>(true);
   const [autoRotate, setAutoRotate] = useState<boolean>(false);
+
+  const allPopupsOn = showLabels && showHudPanels;
 
   // Load packed 16-bit DEMNAS + GLOBathy texture on mount
   useEffect(() => {
@@ -364,7 +367,7 @@ export function CirataTopobathyScene() {
   return (
     <div className="relative h-full min-h-[600px] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-sky-50/70 to-emerald-50/60 shadow-sm">
       {/* Top-Left Interactive Controls */}
-      <div className="absolute top-4 left-4 z-10 flex flex-col gap-2 max-w-xl">
+      <div className="absolute top-4 left-4 z-10 flex flex-col gap-2 max-w-2xl">
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setColorMode("NATURAL")}
@@ -400,24 +403,18 @@ export function CirataTopobathyScene() {
 
         <div className="flex flex-wrap items-center gap-1.5">
           <button
-            onClick={() => setShowWaterSurface((v) => !v)}
-            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm transition border cursor-pointer ${
-              showWaterSurface
-                ? "bg-sky-50 text-sky-800 border-sky-300"
-                : "bg-amber-50 text-amber-800 border-amber-300"
+            onClick={() => {
+              const next = !allPopupsOn;
+              setShowLabels(next);
+              setShowHudPanels(next);
+            }}
+            className={`rounded-xl px-3 py-1.5 text-xs font-bold shadow-sm transition border cursor-pointer ${
+              allPopupsOn
+                ? "bg-emerald-700 text-white border-emerald-600"
+                : "bg-white/95 text-gray-800 border-gray-300 hover:bg-gray-50"
             }`}
           >
-            {showWaterSurface
-              ? "💧 Muka Air (+220m): ON (Klik untuk Kuras & Lihat Palung)"
-              : "🏜️ Muka Air: OFF (Inspeksi Palung Batimetri GLOBathy)"}
-          </button>
-          <button
-            onClick={() =>
-              setZExaggeration((z) => (z === 2.0 ? 3.5 : z === 3.5 ? 5.5 : 2.0))
-            }
-            className="rounded-xl bg-white/95 hover:bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-700 border border-gray-300 shadow-sm transition cursor-pointer"
-          >
-            ⛰️ Skala Vertikal (Z): {zExaggeration.toFixed(1)}×
+            {allPopupsOn ? "👁️ Semua Pop-up: ON" : "👁️ Semua Pop-up: OFF"}
           </button>
           <button
             onClick={() => setShowLabels((v) => !v)}
@@ -427,7 +424,37 @@ export function CirataTopobathyScene() {
                 : "bg-white/95 text-gray-600 border-gray-300"
             }`}
           >
-            {showLabels ? "🏷️ Pin Geospasial: ON" : "🏷️ Pin Geospasial: OFF"}
+            {showLabels ? "🏷️ Pin Geospasial 3D: ON" : "🏷️ Pin Geospasial 3D: OFF"}
+          </button>
+          <button
+            onClick={() => setShowHudPanels((v) => !v)}
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm transition border cursor-pointer ${
+              showHudPanels
+                ? "bg-sky-50 text-sky-800 border-sky-300"
+                : "bg-white/95 text-gray-600 border-gray-300"
+            }`}
+          >
+            {showHudPanels ? "📋 Panel DEM & Legenda: ON" : "📋 Panel DEM & Legenda: OFF"}
+          </button>
+          <button
+            onClick={() => setShowWaterSurface((v) => !v)}
+            className={`rounded-xl px-3 py-1.5 text-xs font-semibold shadow-sm transition border cursor-pointer ${
+              showWaterSurface
+                ? "bg-sky-50 text-sky-800 border-sky-300"
+                : "bg-amber-50 text-amber-800 border-amber-300"
+            }`}
+          >
+            {showWaterSurface
+              ? "💧 Muka Air (+220m): ON"
+              : "🏜️ Muka Air: OFF (Inspeksi Palung)"}
+          </button>
+          <button
+            onClick={() =>
+              setZExaggeration((z) => (z === 2.0 ? 3.5 : z === 3.5 ? 5.5 : 2.0))
+            }
+            className="rounded-xl bg-white/95 hover:bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-700 border border-gray-300 shadow-sm transition cursor-pointer"
+          >
+            ⛰️ Skala Z: {zExaggeration.toFixed(1)}×
           </button>
           <button
             onClick={() => setAutoRotate((v) => !v)}
@@ -442,88 +469,110 @@ export function CirataTopobathyScene() {
         </div>
       </div>
 
-      {/* Left Geodetic & Elevation Metadata Reference Card (Step 5 Output) */}
-      <div className="absolute top-32 left-4 z-10 hidden lg:block pointer-events-none">
-        <div className="w-80 rounded-2xl border border-gray-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md pointer-events-auto">
-          <div className="mb-2 flex items-center justify-between border-b border-gray-100 pb-1.5">
-            <span className="text-xs font-bold text-gray-900">
-              📐 Parameter Topobathymetric DEM
-            </span>
-            <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-mono text-[9px] font-bold text-emerald-800">
-              EPSG:32748 (UTM 48S)
-            </span>
-          </div>
-          <div className="space-y-1.5 text-[11px]">
-            <div className="flex justify-between">
-              <span className="text-gray-500">Persamaan Fusi</span>
-              <span className="font-mono font-bold text-emerald-700">
-                DEMNAS - GLOBathy (Cubic)
+      {/* Left Geodetic & Elevation Metadata Reference Card (Step 5 Output - Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute top-32 left-4 z-10 hidden lg:block pointer-events-none">
+          <div className="w-80 rounded-2xl border border-gray-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md pointer-events-auto">
+            <div className="mb-2 flex items-center justify-between border-b border-gray-100 pb-1.5">
+              <span className="text-xs font-bold text-gray-900">
+                📐 Parameter Topobathymetric DEM
               </span>
+              <div className="flex items-center gap-1.5">
+                <span className="rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-mono text-[9px] font-bold text-emerald-800">
+                  EPSG:32748
+                </span>
+                <button
+                  onClick={() => setShowHudPanels(false)}
+                  title="Sembunyikan Panel"
+                  className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Dimensi Piksel Asli</span>
-              <span className="font-mono font-bold text-gray-900">
-                2.680 × 2.284 px (Res 8,30 m)
-              </span>
+            <div className="space-y-1.5 text-[11px]">
+              <div className="flex justify-between">
+                <span className="text-gray-500">Persamaan Fusi</span>
+                <span className="font-mono font-bold text-emerald-700">
+                  DEMNAS - GLOBathy (Cubic)
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Dimensi Piksel Asli</span>
+                <span className="font-mono font-bold text-gray-900">
+                  2.680 × 2.284 px (Res 8,30 m)
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Bentang Spasial UTM</span>
+                <span className="font-mono font-bold text-gray-900">
+                  22,23 km (B–T) × 18,95 km (S–U)
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Elevasi Minimum (Min)</span>
+                <span className="font-mono font-bold text-sky-700">
+                  +77,13 m dpl (0 uint16)
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Elevasi Maksimum (Max)</span>
+                <span className="font-mono font-bold text-amber-700">
+                  +703,87 m dpl (65535 uint16)
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Kedalaman Maks GLOBathy</span>
+                <span className="font-mono font-bold text-teal-700">
+                  87,81 m (Palung Waduk)
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Smoothing Garis Pantai</span>
+                <span className="font-mono font-bold text-gray-800">
+                  Gaussian σ=2,5 (~Elev +220m)
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Bentang Spasial UTM</span>
-              <span className="font-mono font-bold text-gray-900">
-                22,23 km (B–T) × 18,95 km (S–U)
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Elevasi Minimum (Min)</span>
-              <span className="font-mono font-bold text-sky-700">
-                +77,13 m dpl (0 uint16)
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Elevasi Maksimum (Max)</span>
-              <span className="font-mono font-bold text-amber-700">
-                +703,87 m dpl (65535 uint16)
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Kedalaman Maks GLOBathy</span>
-              <span className="font-mono font-bold text-teal-700">
-                87,81 m (Palung Waduk)
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-500">Smoothing Garis Pantai</span>
-              <span className="font-mono font-bold text-gray-800">
-                Gaussian σ=2,5 (~Elev +220m)
-              </span>
-            </div>
-          </div>
 
-          <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between gap-2">
-            <a
-              href="/assets/cirata_heightmap_16bit.png"
-              download="cirata_heightmap_16bit.png"
-              className="w-full text-center rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1.5 font-mono text-[10px] font-bold text-emerald-800 transition"
+            <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between gap-2">
+              <a
+                href="/assets/cirata_heightmap_16bit.png"
+                download="cirata_heightmap_16bit.png"
+                className="w-full text-center rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1.5 font-mono text-[10px] font-bold text-emerald-800 transition"
+              >
+                ⬇️ Unduh cirata_heightmap_16bit.png (16-Bit)
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Top-Right Badge (Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2.5 shadow-md backdrop-blur-md">
+          <div className="flex items-center justify-between gap-3">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+              Fusi Geospasial DEMNAS + GLOBathy 30m
+            </div>
+            <button
+              onClick={() => setShowHudPanels(false)}
+              title="Sembunyikan Panel"
+              className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
             >
-              ⬇️ Unduh cirata_heightmap_16bit.png (16-Bit)
-            </a>
+              ✕
+            </button>
+          </div>
+          <div className="text-xs font-bold text-gray-900">
+            3D Topobathymetric DEM Waduk Cirata (6.200 Ha)
+          </div>
+          <div className="font-mono text-[10px] text-gray-600">
+            Min: <strong className="text-sky-700">77,13 m</strong> • Max:{" "}
+            <strong className="text-amber-700">703,87 m</strong> • Depth:{" "}
+            <strong className="text-teal-700">87,81 m</strong>
           </div>
         </div>
-      </div>
-
-      {/* Top-Right Badge */}
-      <div className="absolute top-4 right-4 z-10 hidden sm:block rounded-xl border border-gray-200 bg-white/95 px-4 py-2.5 shadow-md backdrop-blur-md">
-        <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-emerald-700">
-          Fusi Geospasial DEMNAS + GLOBathy 30m
-        </div>
-        <div className="text-xs font-bold text-gray-900">
-          3D Topobathymetric DEM Waduk Cirata (6.200 Ha)
-        </div>
-        <div className="font-mono text-[10px] text-gray-600">
-          Min: <strong className="text-sky-700">77,13 m</strong> • Max:{" "}
-          <strong className="text-amber-700">703,87 m</strong> • Depth:{" "}
-          <strong className="text-teal-700">87,81 m</strong>
-        </div>
-      </div>
+      )}
 
       {/* Loading Indicator */}
       {!gridData && (
@@ -577,34 +626,47 @@ export function CirataTopobathyScene() {
         />
       </Canvas>
 
-      {/* Bottom-Right Elevation & Bathymetry Colorbar Legend */}
-      <div className="absolute bottom-4 right-4 z-10 rounded-xl border border-gray-200 bg-white/95 p-3 text-xs text-gray-700 shadow-md backdrop-blur-md">
-        <div className="mb-1.5 font-bold text-gray-900 text-[11px]">
-          Skala Elevasi Topobathymetri (Elevasi_Final = DEMNAS - GLOBathy)
+      {/* Bottom-Right Elevation & Bathymetry Colorbar Legend (Toggleable) */}
+      {showHudPanels && (
+        <div className="absolute bottom-4 right-4 z-10 rounded-xl border border-gray-200 bg-white/95 p-3 text-xs text-gray-700 shadow-md backdrop-blur-md">
+          <div className="mb-1.5 flex items-center justify-between gap-3">
+            <span className="font-bold text-gray-900 text-[11px]">
+              Skala Elevasi Topobathymetri (Elevasi_Final = DEMNAS - GLOBathy)
+            </span>
+            <button
+              onClick={() => setShowHudPanels(false)}
+              title="Sembunyikan Legenda"
+              className="text-[10px] font-bold text-gray-400 hover:text-gray-700 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
+          <div className="space-y-1 text-[10px] font-mono">
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-700" />
+              <span>Perbukitan Hulu &amp; Tanggul (+400 s.d. +703,87 m dpl)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
+              <span>Daratan &amp; Transisi Pantai Gaussian (+220 s.d. +400 m dpl)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-cyan-500" />
+              <span>Zona Dangkal &amp; Teluk Collection Bay (Kedalaman 1–25 m)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-blue-700" />
+              <span>Palung Batimetri GLOBathy Terdalam (Kedalaman s.d. 87,81 m)</span>
+            </div>
+          </div>
         </div>
-        <div className="space-y-1 text-[10px] font-mono">
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-700" />
-            <span>Perbukitan Hulu &amp; Tanggul (+400 s.d. +703,87 m dpl)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
-            <span>Daratan &amp; Transisi Pantai Gaussian (+220 s.d. +400 m dpl)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-cyan-500" />
-            <span>Zona Dangkal &amp; Teluk Collection Bay (Kedalaman 1–25 m)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-blue-700" />
-            <span>Palung Batimetri GLOBathy Terdalam (Kedalaman s.d. 87,81 m)</span>
-          </div>
-        </div>
-      </div>
+      )}
 
-      <div className="absolute bottom-4 left-4 rounded-lg border border-gray-200 bg-white/95 px-2.5 py-1.5 font-mono text-[10px] font-semibold text-gray-600 shadow-sm backdrop-blur-sm pointer-events-none">
-        Klik Kiri: Putar 3D • Klik Kanan: Geser • Scroll: Zoom
-      </div>
+      {showHudPanels && (
+        <div className="absolute bottom-4 left-4 rounded-lg border border-gray-200 bg-white/95 px-2.5 py-1.5 font-mono text-[10px] font-semibold text-gray-600 shadow-sm backdrop-blur-sm pointer-events-none">
+          Klik Kiri: Putar 3D • Klik Kanan: Geser • Scroll: Zoom
+        </div>
+      )}
     </div>
   );
 }
